@@ -134,7 +134,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authenticate(url: url, username: "mhc6kp", password: "7Ak8$3kj1?");
+        self.authenticate(url: url, username: "mhc6kp", password: "#notactuallymypassword");
        
         
         
