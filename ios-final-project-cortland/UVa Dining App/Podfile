@@ -5,4 +5,5 @@ target 'UVa Dining App' do
   	use_frameworks!
 	pod 'Alamofire', '~> 4.0'
 	pod "SwiftSoup"
+	pod 'KeychainSwift', '~> 10.0'
 end

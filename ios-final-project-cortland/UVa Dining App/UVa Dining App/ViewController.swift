@@ -10,15 +10,20 @@
 import UIKit
 import SwiftSoup
 import Alamofire
+import WebKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var webview: UIWebView!
+    @IBAction func dismissAuthenticator(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     let url = "https://netbadge.virginia.edu/";
-    
-    
+    var request = URLRequest(url : URL(string: "https://netbadge.virginia.edu/")!);
     func getPageContent(url: String, username: String, password: String) {
         Alamofire.request("https://netbadge.virginia.edu/").responseString { response in
+            self.saveCookies(response: response)
             if let html = response.result.value {
-                self.getFormParamas(gurl: url, html:html, gusername : username, gpassword: password)
+                self.getFormParamas(gurl: url, html:html as! String, gusername : username, gpassword: password)
             }
         }
     }
@@ -72,10 +77,31 @@ class ViewController: UIViewController {
         self.sendPost(purl:gurl, postParams: result, pusername: gusername, ppassword: gpassword);
     }
     
+    func saveCookies(response: DataResponse<String>) {
+        let headerFields = response.response?.allHeaderFields as! [String: String]
+        let url = response.response?.url
+        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
+        var cookieArray = [[HTTPCookiePropertyKey: Any]]()
+        for cookie in cookies {
+            cookieArray.append(cookie.properties!)
+        }
+        HTTPCookieStorage.shared.cookieAcceptPolicy = HTTPCookie.AcceptPolicy.always
+        UserDefaults.standard.set(cookieArray, forKey: "savedCookies")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func loadCookies() {
+        guard let cookieArray = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else { return }
+        for cookieProperties in cookieArray {
+            if let cookie = HTTPCookie(properties: cookieProperties) {
+                HTTPCookieStorage.shared.setCookie(cookie)
+            }
+        }
+    }
+    
     
     func sendPost(purl:String, postParams: String, pusername: String, ppassword: String) {
         let urlreq = URL(string: purl);
-        var request = URLRequest(url : urlreq!);
         request.httpBody = postParams.data(using: .utf8)
         request.httpMethod = "POST";
         request.httpBody = postParams.data(using: .utf8);
@@ -90,23 +116,11 @@ class ViewController: UIViewController {
                 print("response = \(String(describing: response))")
                 
             }
-            Alamofire.request(request).responseJSON { response in
-                if let
-                    headerFields = response.response?.allHeaderFields as? [String: String],
-                    let URL = response.request?.url
-                {
-                    self.saveCookies(response: response)
-                    let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-                    
-                }
-            }
-            
             
             let responseString = String(data: data, encoding: .utf8)
             if (responseString!.contains("Your NetBadge is valid")) {
                 print("Your NetBadge is Valid");
-            }
-            
+                }
         }
         
         task.resume()
@@ -117,38 +131,53 @@ class ViewController: UIViewController {
     }
     
     
-    func saveCookies(response: DataResponse<Any>) {
-        let headerFields = response.response?.allHeaderFields as! [String: String]
-        let url = response.response?.url
-        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: url!)
-        var cookieArray = [[HTTPCookiePropertyKey: Any]]()
-        for cookie in cookies {
-            cookieArray.append(cookie.properties!)
-        }
-        UserDefaults.standard.set(cookieArray, forKey: "savedCookies")
-        UserDefaults.standard.synchronize()
-    }
     
-    func loadCookies() {
-        guard let cookieArray = UserDefaults.standard.array(forKey: "savedCookies") as? [[HTTPCookiePropertyKey: Any]] else { return }
-        for cookieProperties in cookieArray {
-            if let cookie = HTTPCookie(properties: cookieProperties) {
-                HTTPCookieStorage.shared.setCookie(cookie)
-            }
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authenticate(url: url, username: "mhc6kp", password: "#notmypassword");
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            self.loadCookies();
-            Alamofire.request("https://netbadge.virginia.edu/").responseString { response in
-                if let html = response.result.value {
-                    print(html)
+        self.authenticate(url: url, username: "mhc6kp", password: "7Ak8$3kj1?");
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        self.webview.loadRequest(self.request)
+        let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
+        let requestObj = URLRequest(url: secondUrl!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(400), execute: {
+        self.webview.loadRequest(requestObj)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(500), execute: {
+                let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
+                if let page = doc {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700), execute: {
+                        
+                        if page.contains("The CBORD Group, Inc.") {
+                            let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
+                            let requestObj2 = URLRequest(url: thirdUrl!)
+                            self.webview.loadRequest(requestObj2)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600), execute: {
+                                let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
+                                if let page = doc{
+                                    print(page)
+                                }
+                                let storage = HTTPCookieStorage.shared
+                                for cookie in storage.cookies! {
+                                    storage.deleteCookie(cookie)
+                                }
+                            })
+
+                        }
+                    })
                 }
-            }
-            
+            })
         })
+        
     }
 
     override func didReceiveMemoryWarning() {

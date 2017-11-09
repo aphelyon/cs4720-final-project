@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>KeychainSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-UVa Dining App.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,7 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>38ACA430605AFB4229712A18BDDF5086</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D10E4FF5A483B852B47CCA0B994E340</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5446DF3DFA9F70CF8ECE074D3A935EE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5476F844602CD218EF679F117846C040</key>
 		<dict>
 			<key>primary</key>
 			<true/>
