@@ -158,41 +158,34 @@ class ViewController: UIViewController {
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-        self.webview.loadRequest(requestObj)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(500), execute: {
-                let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
-                if let page = doc {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-                        if page.contains("The CBORD Group, Inc.") {
-                            let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
-                            let requestObj2 = URLRequest(url: thirdUrl!)
-                            self.webview.loadRequest(requestObj2)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(900), execute: {
-                                let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
-                                if let page = doc{
-                                    let balances: Document = try! SwiftSoup.parse(page);
-                                    let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first())!
-                                    self.mealSwipe += try! mealSwipes.html()
-                                    UserDefaults.standard.set(self.mealSwipe, forKey: "mealSwipe")
-                                    let date: Element = try! (balances.getElementsByTag("strong").first())!
-                                    self.lastUpdate += try! date.html()
-                                    UserDefaults.standard.set(self.lastUpdate, forKey: "date")
-                                    let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2))
-                                    self.balance += try! dollarBalances.html()
-                                    UserDefaults.standard.set(self.balance, forKey: "plusDollar")
-                                    self.performSegue(withIdentifier: "exitBalance", sender: self)
-                                    
-                                }
-                                let storage = HTTPCookieStorage.shared
-                                for cookie in storage.cookies! {
-                                    storage.deleteCookie(cookie)
-                                }
-                            })
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            self.webview.loadRequest(requestObj)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(300), execute: {
+                let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
+                let requestObj2 = URLRequest(url: thirdUrl!)
+                self.webview.loadRequest(requestObj2)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds (1) + .milliseconds(500), execute: {
+                    let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
+                    if let page = doc{
+                        let balances: Document = try! SwiftSoup.parse(page);
+                        let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first())!
+                        self.mealSwipe += try! mealSwipes.html()
+                        UserDefaults.standard.set(self.mealSwipe, forKey: "mealSwipe")
+                        let date: Element = try! (balances.getElementsByTag("strong").first())!
+                        self.lastUpdate += try! date.html()
+                        UserDefaults.standard.set(self.lastUpdate, forKey: "date")
+                        let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2))
+                        self.balance += try! dollarBalances.html()
+                        UserDefaults.standard.set(self.balance, forKey: "plusDollar")
+                        self.performSegue(withIdentifier: "exitBalance", sender: self)
+                        
+                    }
+                    let storage = HTTPCookieStorage.shared
+                    for cookie in storage.cookies! {
+                        storage.deleteCookie(cookie)
+                    }
+                })
 
-                        }
-                    })
-                }
             })
         })
         
