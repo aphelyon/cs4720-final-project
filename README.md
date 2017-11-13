@@ -14,6 +14,7 @@ Need to figure out how to use keychain
 Need to figure out how to make sure users with bad internet connection are okay
   ???
   
+  
 Optional Features to look out for
 
 
