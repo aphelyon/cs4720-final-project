@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         }
         dismiss(animated: true, completion: nil)
     }
+    var username = "";
+    var password = "";
     var balance = "Plus Dollars: "
     var mealSwipe = "Meal Swipes: "
     var lastUpdate = "Last Updated: "
@@ -150,23 +152,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authenticate(url: url, username: "mhc6kp", password: "#notmypassword");
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        self.authenticate(url: url, username: self.username, password: self.password);
         
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(400), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4) + .milliseconds(400), execute: {
         self.webview.loadRequest(requestObj)
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(200), execute: {
                 let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")

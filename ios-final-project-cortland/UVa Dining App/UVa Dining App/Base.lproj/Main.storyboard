@@ -51,7 +51,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Update"/>
                                         <connections>
-                                            <segue destination="S6h-mb-fAE" kind="presentation" identifier="authenticate" id="8vx-bZ-UzX"/>
+                                            <action selector="update:" destination="f3t-kf-52j" eventType="touchDown" id="Ae9-IA-fuz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -78,8 +78,7 @@
                     <navigationItem key="navigationItem" id="6v6-aC-8EP">
                         <barButtonItem key="rightBarButtonItem" title="Login" id="FH6-mR-TwD">
                             <connections>
-                                <action selector="login:" destination="f3t-kf-52j" id="8bP-fZ-J4V"/>
-                                <segue destination="w2c-52-aT2" kind="presentation" id="Glv-8q-da7"/>
+                                <action selector="login:" destination="f3t-kf-52j" id="72K-kd-Jlq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -91,6 +90,8 @@
                         <outlet property="ohill" destination="W8g-0M-RgZ" id="7n5-OV-PYL"/>
                         <outlet property="plusDollars" destination="qM6-a3-zi1" id="HIC-Ry-7mi"/>
                         <outlet property="runk" destination="DYD-BO-LyT" id="Mtp-pL-9Vt"/>
+                        <segue destination="w2c-52-aT2" kind="presentation" identifier="login" id="PnW-4G-cUH"/>
+                        <segue destination="S6h-mb-fAE" kind="presentation" identifier="update" id="ClY-jd-FZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,49 +111,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-DE-qnN">
-                                <rect key="frame" x="29" y="182" width="84" height="21"/>
+                                <rect key="frame" x="16" y="93" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ile-iq-yy6">
-                                <rect key="frame" x="29" y="256" width="79" height="21"/>
+                                <rect key="frame" x="16" y="181" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYr-nh-ong">
-                                <rect key="frame" x="29" y="211" width="275" height="30"/>
+                                <rect key="frame" x="16" y="130" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsj-y3-TAC">
-                                <rect key="frame" x="29" y="285" width="275" height="30"/>
+                                <rect key="frame" x="16" y="210" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pin (4-digit):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqp-dV-d7J">
-                                <rect key="frame" x="29" y="332" width="96" height="21"/>
+                                <rect key="frame" x="16" y="258" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2b9-n6-PgR">
-                                <rect key="frame" x="29" y="361" width="275" height="30"/>
+                                <rect key="frame" x="16" y="287" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="EQo-sE-Zlm">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Spw-sO-66I">
@@ -163,7 +164,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="dDm-xV-lWP">
                             <connections>
                                 <action selector="saveLogin:" destination="2br-Gc-77k" id="Mmc-H6-MAm"/>
-                                <segue destination="5wZ-9D-fkE" kind="unwind" identifier="login" unwindAction="unwindToHomeViewWithSegue:" id="Xkb-PK-tc7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -171,6 +171,7 @@
                         <outlet property="password" destination="gsj-y3-TAC" id="V8a-F6-Iu8"/>
                         <outlet property="pin" destination="2b9-n6-PgR" id="DnM-FG-KQU"/>
                         <outlet property="username" destination="zYr-nh-ong" id="YCk-qi-CzM"/>
+                        <segue destination="5wZ-9D-fkE" kind="unwind" identifier="saveLogin" unwindAction="unwindToHomeViewWithSegue:" id="asn-vi-1xu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzB-Jy-tVY" userLabel="First Responder" sceneMemberID="firstResponder"/>

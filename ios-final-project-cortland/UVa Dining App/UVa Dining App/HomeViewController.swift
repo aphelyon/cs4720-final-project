@@ -25,10 +25,81 @@ class HomeViewController: UIViewController {
     var plusDollar = "Plus Dollars: "
     var mealSwipe = "Meal Swipes: "
     var lastUpdate = "Last Updated: "
- 
-    @IBAction func login(_ sender: Any) {
-        self.performSegue(withIdentifier: "authenticate", sender: self)
+    var pinnumber = "";
+    var username = "";
+    var password = "";
+    var keychainHome = KeychainSwift();
+    
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+                                           message: message,
+                                           preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+                                           style: .default,
+                                           handler: nil))
+        
+        present(controller, animated: true, completion: nil)
+        
     }
+    
+    @IBAction func update(_ sender: Any) {
+        if (UserDefaults.standard.object(forKey: "loggedIn") != nil) {
+            let keychain = UserDefaults.standard.object(forKey: "keychain") as? KeychainSwift
+            let alert = UIAlertController(title: "Update", message: "Enter your pin please.", preferredStyle: .alert)
+            
+            alert.addTextField { (textField) in
+                textField.text = ""
+                textField.keyboardType = .numberPad
+                textField.isSecureTextEntry = true;
+            }
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                self.pinnumber = (alert?.textFields![0].text)!
+                if (self.pinnumber.characters.count != 4) {
+                    self.displayAlertWithTitle(title: "Incorrect Pin Length",
+                                               message: "Please enter a 4-digit pin")
+                }
+                else {
+                    if ((self.keychainHome.get(self.pinnumber)) != nil) {
+                        self.username = (self.keychainHome.get(self.pinnumber)!)
+                        self.password = (self.keychainHome.get(self.pinnumber + "x")!)
+                        self.performSegue(withIdentifier: "update", sender: self)
+                    }
+                    else {
+                        self.displayAlertWithTitle(title: "Incorrect Pin",
+                                                   message: "Please enter the correct pin")
+                    }
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else {
+            self.displayAlertWithTitle(title: "You are not logged in",
+                                       message: "Please log in.")
+        }
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        if (UserDefaults.standard.object(forKey: "loggedIn") == nil) {
+            self.performSegue(withIdentifier: "login", sender: self)
+        }
+        else {
+            self.displayAlertWithTitle(title: "You are already logged in",
+                                       message: "You don't need to login again!")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "update") {
+            let destinationVC = segue.destination as! UINavigationController
+            let targetController = destinationVC.topViewController as! ViewController
+            targetController.username = self.username
+            targetController.password = self.password
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         plusDollars.text = plusDollar

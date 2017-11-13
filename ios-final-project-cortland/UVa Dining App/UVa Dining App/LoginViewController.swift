@@ -14,8 +14,13 @@ import KeychainSwift
 class LoginViewController: UIViewController {
     
     var success = false;
+    var keychain = KeychainSwift()
     
     @IBOutlet weak var pin: UITextField!
+    
+    @IBAction func unwindToHomeView(segue: UIStoryboardSegue) {
+        
+    }
     
     func displayAlertWithTitle(title: String, message: String){
         let controller = UIAlertController(title: title,
@@ -52,11 +57,13 @@ class LoginViewController: UIViewController {
                         for cookie in storage.cookies! {
                             storage.deleteCookie(cookie)
                         }
-                        self.performSegue(withIdentifier: "exitBalance", sender: self)
+                        UserDefaults.standard.set(true, forKey: "loggedIn")
+                        self.performSegue(withIdentifier: "saveLogin", sender: self)
                     })
-                    let keychain = KeychainSwift()
-                    keychain.set(self.username.text!, forKey: self.pin.text!)
-                    keychain.set(self.password.text!, forKey: self.pin.text! + "1")
+                    self.keychain.set(self.username.text!, forKey: self.pin.text!)
+                    self.keychain.set(self.password.text!, forKey: self.pin.text! + "x")
+                    print(self.pin.text!)
+                    
                 }
                 else {
                     self.displayAlertWithTitle(title: "Incorrect Password",
@@ -68,6 +75,15 @@ class LoginViewController: UIViewController {
                 }
             })
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "saveLogin") {
+            let destinationVC = segue.destination as! HomeViewController
+            let targetController = destinationVC
+            targetController.keychainHome = self.keychain;
+        }
+        
     }
     
     @IBOutlet weak var username: UITextField!
@@ -175,10 +191,15 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
