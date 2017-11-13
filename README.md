@@ -15,6 +15,8 @@ Need to figure out how to make sure users with bad internet connection are okay
   ???
   
 Optional Features to look out for
+
+
     >Consume a pre-built web service 
        Logs into netbadge, grabs the user's plus dollar balance, meal swipe balance, and current date
     
