@@ -22,25 +22,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kU7-QP-zMN">
-                                <rect key="frame" x="32" y="97" width="240" height="128"/>
+                                <rect key="frame" x="16" y="76" width="288" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plus Dollars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-a3-zi1">
-                                        <rect key="frame" x="8" y="8" width="95" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meal Swipes: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-zr-yGI">
+                                        <rect key="frame" x="8" y="40" width="296" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meal Swipes: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-zr-yGI">
-                                        <rect key="frame" x="8" y="45" width="105" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plus Dollars:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-a3-zi1">
+                                        <rect key="frame" x="8" y="8" width="296" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Updated:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSX-Rs-uJH">
+                                        <rect key="frame" x="8" y="61" width="280" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMq-9p-1B4">
-                                        <rect key="frame" x="165" y="92" width="75" height="30"/>
+                                        <rect key="frame" x="213" y="23" width="75" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Update"/>
                                         <connections>
@@ -50,16 +57,41 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imageedit_12_6560616165" translatesAutoresizingMaskIntoConstraints="NO" id="Z6M-9V-uwt">
+                                <rect key="frame" x="16" y="194" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imageedit_8_7335452176" translatesAutoresizingMaskIntoConstraints="NO" id="DYD-BO-LyT">
+                                <rect key="frame" x="224" y="194" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imageedit_4_9156436346" translatesAutoresizingMaskIntoConstraints="NO" id="W8g-0M-RgZ">
+                                <rect key="frame" x="120" y="194" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6v6-aC-8EP">
                         <barButtonItem key="rightBarButtonItem" title="Login" id="FH6-mR-TwD">
                             <connections>
+                                <action selector="login:" destination="f3t-kf-52j" id="8bP-fZ-J4V"/>
                                 <segue destination="w2c-52-aT2" kind="presentation" id="Glv-8q-da7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="balanceView" destination="kU7-QP-zMN" id="IZY-Nx-qug"/>
+                        <outlet property="lastUpdated" destination="dSX-Rs-uJH" id="i29-d6-BA0"/>
+                        <outlet property="mealSwipes" destination="iaX-zr-yGI" id="tNj-iv-hAM"/>
+                        <outlet property="newcomb" destination="Z6M-9V-uwt" id="lnd-pd-XNe"/>
+                        <outlet property="ohill" destination="W8g-0M-RgZ" id="7n5-OV-PYL"/>
+                        <outlet property="plusDollars" destination="qM6-a3-zi1" id="HIC-Ry-7mi"/>
+                        <outlet property="runk" destination="DYD-BO-LyT" id="Mtp-pL-9Vt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,6 +163,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="dDm-xV-lWP">
                             <connections>
                                 <action selector="saveLogin:" destination="2br-Gc-77k" id="Mmc-H6-MAm"/>
+                                <segue destination="5wZ-9D-fkE" kind="unwind" identifier="login" unwindAction="unwindToHomeViewWithSegue:" id="Xkb-PK-tc7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -141,10 +174,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzB-Jy-tVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5wZ-9D-fkE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2362.5" y="100.35211267605634"/>
         </scene>
-        <!--View Controller-->
+        <!--Balances-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -157,14 +191,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sae-kR-zew">
-                                <rect key="frame" x="28" y="56" width="265" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pnz-qb-tdo">
+                    <navigationItem key="navigationItem" title="Balances" id="Pnz-qb-tdo">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="oko-mN-wU8">
                             <connections>
                                 <action selector="dismissAuthenticator:" destination="BYZ-38-t0r" id="uoU-jW-Qh4"/>
@@ -173,11 +207,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="webview" destination="sae-kR-zew" id="ph5-lL-zuE"/>
+                        <segue destination="Lg4-DA-hkS" kind="unwind" identifier="exitBalance" unwindAction="unwindToHomeViewWithSegue:" id="Kar-gD-CmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Lg4-DA-hkS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1298" y="1224"/>
+            <point key="canvasLocation" x="1297.5" y="1223.2394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O5b-f0-gvN">
@@ -234,4 +270,9 @@
             <point key="canvasLocation" x="-1211.25" y="101.40845070422536"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="imageedit_12_6560616165" width="404" height="400"/>
+        <image name="imageedit_4_9156436346" width="181" height="181"/>
+        <image name="imageedit_8_7335452176" width="181" height="181"/>
+    </resources>
 </document>

@@ -15,8 +15,15 @@ import WebKit
 class ViewController: UIViewController {
     @IBOutlet weak var webview: UIWebView!
     @IBAction func dismissAuthenticator(_ sender: Any) {
+        let storage = HTTPCookieStorage.shared
+        for cookie in storage.cookies! {
+            storage.deleteCookie(cookie)
+        }
         dismiss(animated: true, completion: nil)
     }
+    var balance = "Plus Dollars: "
+    var mealSwipe = "Meal Swipes: "
+    var lastUpdate = "Last Updated: "
     let url = "https://netbadge.virginia.edu/";
     var request = URLRequest(url : URL(string: "https://netbadge.virginia.edu/")!);
     func getPageContent(url: String, username: String, password: String) {
@@ -130,11 +137,20 @@ class ViewController: UIViewController {
         self.getPageContent(url: url, username: username, password: password);
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "exitBalance") {
+            let destinationVC = segue.destination as! HomeViewController
+            let targetController = destinationVC
+            targetController.plusDollars.text! = balance
+            targetController.mealSwipes.text! = mealSwipe
+            targetController.lastUpdated.text! = lastUpdate
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.authenticate(url: url, username: "mhc6kp", password: "#notactuallymypassword");
+        self.authenticate(url: url, username: "mhc6kp", password: "#notmypassword");
        
         
         
@@ -150,21 +166,31 @@ class ViewController: UIViewController {
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(400), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(400), execute: {
         self.webview.loadRequest(requestObj)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(500), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(200), execute: {
                 let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
                 if let page = doc {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(700), execute: {
-                        
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
                         if page.contains("The CBORD Group, Inc.") {
                             let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
                             let requestObj2 = URLRequest(url: thirdUrl!)
                             self.webview.loadRequest(requestObj2)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(600), execute: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(900), execute: {
                                 let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
                                 if let page = doc{
                                     print(page)
+                                    let balances: Document = try! SwiftSoup.parse(page);
+                                    let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first())!
+                                    print(try! mealSwipes.html())
+                                    self.mealSwipe += try! mealSwipes.html()
+                                    let date: Element = try! (balances.getElementsByTag("strong").first())!
+                                    print(try! date.html())
+                                    self.lastUpdate += try! date.html()
+                                    let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2))
+                                    self.balance += try! dollarBalances.html()
+                                    print(try! dollarBalances.html())
+                                    self.performSegue(withIdentifier: "exitBalance", sender: self)
                                 }
                                 let storage = HTTPCookieStorage.shared
                                 for cookie in storage.cookies! {

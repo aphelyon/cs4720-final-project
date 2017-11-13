@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSoup
 import Alamofire
+import KeychainSwift
 
 class LoginViewController: UIViewController {
     
@@ -34,21 +35,28 @@ class LoginViewController: UIViewController {
         if (pin.text!.characters.count != 4) {
             self.displayAlertWithTitle(title: "Incorrect Pin Length",
                                   message: "Please enter a 4-digit pin")
+            let storage = HTTPCookieStorage.shared
+            for cookie in storage.cookies! {
+                storage.deleteCookie(cookie)
+            }
         }
             
         else {
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) + .milliseconds(400), execute: {
                 if self.success {
                     self.displayAlertWithTitle(title: "Success",
-                                          message: "Login was successfully saved")
-                    let storage = HTTPCookieStorage.shared
-                    for cookie in storage.cookies! {
-                        storage.deleteCookie(cookie)
-                    }
+                                          message: "Your NetBadge was Valid. \nLogin was successfully saved.")
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) + .milliseconds(500), execute: {
                         self.dismiss(animated: true, completion: nil)
-                        self.dismiss(animated: true, completion: nil)
+                        let storage = HTTPCookieStorage.shared
+                        for cookie in storage.cookies! {
+                            storage.deleteCookie(cookie)
+                        }
+                        self.performSegue(withIdentifier: "exitBalance", sender: self)
                     })
+                    let keychain = KeychainSwift()
+                    keychain.set(self.username.text!, forKey: self.pin.text!)
+                    keychain.set(self.password.text!, forKey: self.pin.text! + "1")
                 }
                 else {
                     self.displayAlertWithTitle(title: "Incorrect Password",
