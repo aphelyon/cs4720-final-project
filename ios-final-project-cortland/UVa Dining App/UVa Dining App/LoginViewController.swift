@@ -62,8 +62,6 @@ class LoginViewController: UIViewController {
                     })
                     self.keychain.set(self.username.text!, forKey: self.pin.text!)
                     self.keychain.set(self.password.text!, forKey: self.pin.text! + "x")
-                    print(self.pin.text!)
-                    
                 }
                 else {
                     self.displayAlertWithTitle(title: "Incorrect Password",

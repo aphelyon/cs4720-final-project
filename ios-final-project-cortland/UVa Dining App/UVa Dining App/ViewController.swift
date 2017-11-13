@@ -139,6 +139,7 @@ class ViewController: UIViewController {
         self.getPageContent(url: url, username: username, password: password);
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "exitBalance") {
             let destinationVC = segue.destination as! HomeViewController
@@ -157,9 +158,9 @@ class ViewController: UIViewController {
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4) + .milliseconds(400), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
         self.webview.loadRequest(requestObj)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(200), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + .milliseconds(500), execute: {
                 let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
                 if let page = doc {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
@@ -170,18 +171,18 @@ class ViewController: UIViewController {
                             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(900), execute: {
                                 let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
                                 if let page = doc{
-                                    print(page)
                                     let balances: Document = try! SwiftSoup.parse(page);
                                     let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first())!
-                                    print(try! mealSwipes.html())
                                     self.mealSwipe += try! mealSwipes.html()
+                                    UserDefaults.standard.set(self.mealSwipe, forKey: "mealSwipe")
                                     let date: Element = try! (balances.getElementsByTag("strong").first())!
-                                    print(try! date.html())
                                     self.lastUpdate += try! date.html()
+                                    UserDefaults.standard.set(self.lastUpdate, forKey: "date")
                                     let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2))
                                     self.balance += try! dollarBalances.html()
-                                    print(try! dollarBalances.html())
+                                    UserDefaults.standard.set(self.balance, forKey: "plusDollar")
                                     self.performSegue(withIdentifier: "exitBalance", sender: self)
+                                    
                                 }
                                 let storage = HTTPCookieStorage.shared
                                 for cookie in storage.cookies! {

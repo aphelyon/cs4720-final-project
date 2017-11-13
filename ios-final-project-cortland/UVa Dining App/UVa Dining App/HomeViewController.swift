@@ -102,9 +102,24 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        plusDollars.text = plusDollar
-        mealSwipes.text = mealSwipe
-        lastUpdated.text = lastUpdate
+        if (UserDefaults.standard.object(forKey: "plusDollar") != nil) {
+            plusDollars.text = UserDefaults.standard.object(forKey: "plusDollar") as! String
+        }
+        else {
+            plusDollars.text = self.plusDollar
+        }
+        if (UserDefaults.standard.object(forKey: "mealSwipe") != nil) {
+            mealSwipes.text = UserDefaults.standard.object(forKey: "mealSwipe") as! String
+        }
+        else {
+            mealSwipes.text = self.mealSwipe
+        }
+        if (UserDefaults.standard.object(forKey: "date") != nil) {
+            lastUpdated.text = UserDefaults.standard.object(forKey: "date") as! String
+        }
+        else {
+            lastUpdated.text = self.lastUpdate
+        }
         balanceView.layer.cornerRadius = 10
         
         balanceView.layer.borderWidth = 0.5
