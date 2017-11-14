@@ -10,6 +10,7 @@ How the App works (so far)
           The user's Computing ID
           The user's NetBadge password
           A user defined pin
+          
       The LoginViewController then checks for:
           A user defined pin of 4 characters
               If the pin is valid, it then checks if the NetBadge Login is valid
