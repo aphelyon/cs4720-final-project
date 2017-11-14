@@ -2,6 +2,7 @@
 
 How the App works (so far)
 
+
   The user must first put in their login information if they want to access and update their current balance of plus dollars and meal swipes.
   
   To do so, they must tap on the right bar button, which will then pull up the LoginViewController. 
@@ -38,9 +39,10 @@ Optional Features to look out for
       Grabs keychain for login, also grabs the user's previous balances when loading the app. 
 
 Dependencies
-  Alamofire
-  SwiftSoup
-  Keychain Swift
+     
+     Alamofire
+     SwiftSoup
+     KeychainSwift
 
 
 
