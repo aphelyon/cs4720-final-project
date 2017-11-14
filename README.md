@@ -1,8 +1,7 @@
 "# final-project-final-cortland
 
 How the App works (so far)
-
-
+  
   The user must first put in their login information if they want to access and update their current balance of plus dollars and meal swipes.
   
   To do so, they must tap on the right bar button, which will then pull up the LoginViewController. 
@@ -21,6 +20,7 @@ How the App works (so far)
       This opens a new scene, which accesses the relevant web service and saves the information regarding the user's balances
       
         Some assumptions:
+            
             The user has a good internet connection
             The webpages successfully load within the webview of the update scene.
             The user has a cavadvantage balance
