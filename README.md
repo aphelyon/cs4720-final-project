@@ -47,16 +47,20 @@ Dependencies
 
 
 Finish NetBadge Authentication
-  --> Done
+
+      --> Done
 
 Need to figure out how to use that cookie I get
-  --> Done
+      
+      --> Done
 
 Need to figure out how to extract data from campus dish and go to the next item
-  --> Done
+      
+      --> Done
   
 Need to figure out how to use keychain
-  --> Done
+      
+      --> Done
   
 Need to figure out how to grab CampusDish Data
 
