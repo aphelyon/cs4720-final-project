@@ -1,8 +1,8 @@
 "# final-project-final-cortland
 
 How the App works (so far)
-  
-  The user must first put in their login information if they want to access and update their current balance of plus dollars and meal swipes.
+      
+      The user must first put in their login information if they want to access and update their current balance of plus dollars and meal swipes.
   
   To do so, they must tap on the right bar button, which will then pull up the LoginViewController. 
   
