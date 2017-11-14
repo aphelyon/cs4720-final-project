@@ -98,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="-213.75" y="101.40845070422536"/>
         </scene>
-        <!--Login-->
+        <!--NetBadge Login-->
         <scene sceneID="J4V-xJ-izD">
             <objects>
                 <viewController id="2br-Gc-77k" customClass="LoginViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,8 +110,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-DE-qnN">
-                                <rect key="frame" x="16" y="93" width="84" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Computing ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnW-DE-qnN">
+                                <rect key="frame" x="16" y="93" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -155,7 +155,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="EQo-sE-Zlm">
+                    <navigationItem key="navigationItem" title="NetBadge Login" id="EQo-sE-Zlm">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Spw-sO-66I">
                             <connections>
                                 <action selector="dismissLogin:" destination="2br-Gc-77k" id="IEh-cV-cwY"/>
