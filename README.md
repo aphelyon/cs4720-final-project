@@ -55,14 +55,14 @@ Need to figure out how to use that cookie I get
       
       --> Done
 
-Need to figure out how to extract data from campus dish and go to the next item
-      
-      --> Done
-  
 Need to figure out how to use keychain
       
       --> Done
   
 Need to figure out how to grab CampusDish Data
+       
+       -->
 
 Need to make firebase with data of all the restaurants that are plus dollar and meal exchange eligible 
+            
+       -->
