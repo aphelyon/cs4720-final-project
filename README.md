@@ -25,6 +25,8 @@ How the App works (so far)
             The user has a good internet connection
             The webpages successfully load within the webview of the update scene.
             The user has a cavadvantage balance
+            The user has a plus dollars balance
+            The user has a meal swipe balance
        
        If these assumptions aren't met, the app is likely to crash because grabbing the specific elements relies on the webpage successfully loading
        
