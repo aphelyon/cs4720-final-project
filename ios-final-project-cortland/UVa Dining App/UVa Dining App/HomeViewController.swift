@@ -8,6 +8,8 @@
 
 import UIKit
 import KeychainSwift
+import Alamofire
+import SwiftSoup
 
 class HomeViewController: UIViewController {
 
@@ -45,8 +47,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func update(_ sender: Any) {
         if (UserDefaults.standard.object(forKey: "loggedIn") != nil) {
-            let keychain = UserDefaults.standard.object(forKey: "keychain") as? KeychainSwift
-            let alert = UIAlertController(title: "Update", message: "Enter your pin please.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Update", message: "Enter your pin please.", preferredStyle: .alert)
             
             alert.addTextField { (textField) in
                 textField.text = ""
@@ -103,19 +104,19 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if (UserDefaults.standard.object(forKey: "plusDollar") != nil) {
-            plusDollars.text = UserDefaults.standard.object(forKey: "plusDollar") as! String
+            plusDollars.text = UserDefaults.standard.object(forKey: "plusDollar") as? String
         }
         else {
             plusDollars.text = self.plusDollar
         }
         if (UserDefaults.standard.object(forKey: "mealSwipe") != nil) {
-            mealSwipes.text = UserDefaults.standard.object(forKey: "mealSwipe") as! String
+            mealSwipes.text = UserDefaults.standard.object(forKey: "mealSwipe") as? String
         }
         else {
             mealSwipes.text = self.mealSwipe
         }
         if (UserDefaults.standard.object(forKey: "date") != nil) {
-            lastUpdated.text = UserDefaults.standard.object(forKey: "date") as! String
+            lastUpdated.text = UserDefaults.standard.object(forKey: "date") as? String
         }
         else {
             lastUpdated.text = self.lastUpdate
@@ -135,6 +136,13 @@ class HomeViewController: UIViewController {
         ohill.clipsToBounds = true
         runk.layer.cornerRadius = 8.0
         runk.clipsToBounds = true
+        Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=704").responseString { response in
+            if let html = response.result.value {
+                let doc: Document = try! SwiftSoup.parse(html);
+                let elem: Element = try! (doc.getElementsByClass("menu-name withcal").first())!
+                print(elem)
+            }
+        }
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {

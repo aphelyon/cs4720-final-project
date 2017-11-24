@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         Alamofire.request("https://netbadge.virginia.edu/").responseString { response in
             self.saveCookies(response: response)
             if let html = response.result.value {
-                self.getFormParamas(gurl: url, html:html as! String, gusername : username, gpassword: password)
+                self.getFormParamas(gurl: url, html:html, gusername : username, gpassword: password)
             }
         }
     }
@@ -110,7 +110,6 @@ class ViewController: UIViewController {
     
     
     func sendPost(purl:String, postParams: String, pusername: String, ppassword: String) {
-        let urlreq = URL(string: purl);
         request.httpBody = postParams.data(using: .utf8)
         request.httpMethod = "POST";
         request.httpBody = postParams.data(using: .utf8);
@@ -158,7 +157,7 @@ class ViewController: UIViewController {
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(800), execute: {
             self.webview.loadRequest(requestObj)
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(300), execute: {
                 let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
