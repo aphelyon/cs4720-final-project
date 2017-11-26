@@ -11,6 +11,13 @@ import KeychainSwift
 import Alamofire
 import SwiftSoup
 
+extension String
+{
+    func replace(target: String, withString: String) -> String
+    {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+    }
+}
 class HomeViewController: UIViewController {
 
     
@@ -32,6 +39,7 @@ class HomeViewController: UIViewController {
     var password = "";
     var keychainHome = KeychainSwift();
     
+        
     func displayAlertWithTitle(title: String, message: String){
         let controller = UIAlertController(title: title,
                                            message: message,
@@ -81,6 +89,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    
     @IBAction func login(_ sender: Any) {
         if (UserDefaults.standard.object(forKey: "loggedIn") == nil) {
             self.performSegue(withIdentifier: "login", sender: self)
@@ -99,6 +108,27 @@ class HomeViewController: UIViewController {
             targetController.password = self.password
         }
         
+    }
+    
+    func newcombTapped(gesture: UIGestureRecognizer) {
+        if (gesture.view as? UIImageView) != nil {
+
+            self.performSegue(withIdentifier: "newcomb", sender: self)
+        }
+    }
+    
+    func ohillTapped(gesture: UIGestureRecognizer) {
+        if (gesture.view as? UIImageView) != nil {
+            
+            self.performSegue(withIdentifier: "ohill", sender: self)
+        }
+    }
+    
+    func runkTapped(gesture: UIGestureRecognizer) {
+        if (gesture.view as? UIImageView) != nil {
+            
+            self.performSegue(withIdentifier: "runk", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -132,17 +162,19 @@ class HomeViewController: UIViewController {
         balanceView.layer.shadowRadius = 3.0
         newcomb.layer.cornerRadius = 8.0
         newcomb.clipsToBounds = true
+       let newcombGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.newcombTapped(gesture:)))
+        newcomb.addGestureRecognizer(newcombGesture)
+        newcomb.isUserInteractionEnabled = true
         ohill.layer.cornerRadius = 8.0
         ohill.clipsToBounds = true
+        let ohillGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.ohillTapped(gesture:)))
+        ohill.addGestureRecognizer(ohillGesture)
+        ohill.isUserInteractionEnabled = true
         runk.layer.cornerRadius = 8.0
         runk.clipsToBounds = true
-        Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=704").responseString { response in
-            if let html = response.result.value {
-                let doc: Document = try! SwiftSoup.parse(html);
-                let elem: Element = try! (doc.getElementsByClass("menu-name withcal").first())!
-                print(elem)
-            }
-        }
+        let runkGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.runkTapped(gesture:)))
+        runk.addGestureRecognizer(runkGesture)
+        runk.isUserInteractionEnabled = true
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {

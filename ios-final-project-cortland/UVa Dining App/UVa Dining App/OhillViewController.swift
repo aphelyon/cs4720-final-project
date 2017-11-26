@@ -1,8 +1,8 @@
 //
-//  NewcombViewController.swift
+//  OhillViewController.swift
 //  UVa Dining App
 //
-//  Created by Michael Chang on 11/19/17.
+//  Created by Michael Chang on 11/24/17.
 //  Copyright © 2017 Michael Chang. All rights reserved.
 //
 
@@ -10,13 +10,14 @@ import UIKit
 import SwiftSoup
 import Alamofire
 
-class NewcombViewController: UIViewController {
+
+class OhillViewController: UIViewController {
     var tableentries = [] as Array;
     
-    @IBAction func dismissNewcomb(_ sender: Any) {
-         dismiss(animated: true, completion: nil)
+    @IBAction func dismissOhill(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
+
     func matches(for regex: String, in text: String) -> [String] {
         
         do {
@@ -31,10 +32,9 @@ class NewcombViewController: UIViewController {
         }
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=704").responseString { response in
+        Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695").responseString { response in
             if let html = response.result.value {
                 let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
                 let matched = try! self.matches(for: regex, in: html)
