@@ -278,6 +278,7 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                 }
             }
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                 if (self.tableentries.count != 0){
                     print(self.tableentries)
