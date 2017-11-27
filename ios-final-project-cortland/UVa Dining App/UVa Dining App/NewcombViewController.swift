@@ -593,7 +593,7 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
             })
             
         }
-        if segment.selectedSegmentIndex == 1 && weekday {
+        if segment.selectedSegmentIndex == 1 && self.saturday {
             print("brunch")
             tableentries = [String]();
             Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=704&PeriodId=1422&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
