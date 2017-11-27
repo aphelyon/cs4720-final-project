@@ -11,8 +11,17 @@ import SwiftSoup
 import Alamofire
 
 
-class OhillViewController: UIViewController {
-    var tableentries = [] as Array;
+class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var tableentries = [String]();
+    var weekend = false;
+    var weekday = false;
+    
+    @IBOutlet weak var ohillView: UIView!
+    @IBOutlet weak var ohillStatus: UILabel!
+    @IBOutlet weak var currentWeekday: UILabel!
+    @IBOutlet weak var operatingHours: UILabel!
+    @IBOutlet weak var selector: UISegmentedControl!
+    @IBOutlet weak var ohillTable: UITableView!
     
     @IBAction func dismissOhill(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -32,40 +41,390 @@ class OhillViewController: UIViewController {
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableentries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "ohillTableCell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MenuItemTableViewCell
+        let menuItem = self.tableentries[indexPath.row]
+        
+        cell.menuItemName.text = menuItem
+        
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ohillView.layer.borderWidth = 2.0
+        ohillView.layer.borderColor = UIColor.black.cgColor
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
+        let dateComponents = NSDateComponents()
+        dateComponents.day = day
+        dateComponents.month = month
+        dateComponents.year = year
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(identifier: "EST")
+        if let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian),
+            let date = gregorianCalendar.date(from: dateComponents as DateComponents) {
+            let weekday = gregorianCalendar.component(.weekday, from: date)
+            switch weekday {
+            case 1:
+                currentWeekday.text = "Sunday"
+                
+            case 2:
+                currentWeekday.text = "Monday"
+            case 3:
+                currentWeekday.text = "Tuesday"
+            case 4:
+                currentWeekday.text = "Wednesday"
+            case 5:
+                currentWeekday.text = "Thursday"
+            case 6:
+                currentWeekday.text = "Friday"
+            case 7:
+                currentWeekday.text = "Saturday"
+            default:
+                print("Invalid")
+            }
+            let operation = gregorianCalendar.component(.weekday, from: date)
+            switch operation {
+            case 1:
+                operatingHours.text = "8:00 am - 9:00 pm"
+                self.weekend = true;
+            case (2..<7):
+                operatingHours.text = "7:00 am - 9:00 pm"
+                self.weekday = true;
+            case 7:
+                operatingHours.text = "8:00 am - 9:00 pm"
+                self.weekend = true;
+            default:
+                print("Invalid")
+            }
+    
+            ohillStatus.text = check(time: formatter.date(from: formatter.string(from: date))! as NSDate)
+            if (check(time: formatter.date(from: formatter.string(from: date))! as NSDate) == "Closed") {
+                ohillStatus.textColor = .red
+            }
+            else {
+                ohillStatus.textColor = .green
+            }
+        }
+        
+        
         Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695").responseString { response in
             if let html = response.result.value {
-                let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
-                let matched = try! self.matches(for: regex, in: html)
-                for element in matched {
-                    if (element.contains(";\">")) {
-                        let start = element.index(element.startIndex, offsetBy: 3)
-                        let end = element.index(element.endIndex, offsetBy: -4)
-                        let range = start..<end
-                        var mySubstring = element[range]
-                        if (mySubstring.contains("&amp;")) {
-                            mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                if html.contains("Brunch") {
+                    self.weekend = true;
+                    self.selector.setTitle("Brunch", forSegmentAt: 0)
+                    self.selector.setTitle("Dinner", forSegmentAt: 1)
+                    Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1422&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                        if let html2 = response.result.value {
+                            let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                            let matched = try! self.matches(for: regex, in: html2)
+                            for element in matched {
+                                if (element.contains(";\">")) {
+                                    let start = element.index(element.startIndex, offsetBy: 3)
+                                    let end = element.index(element.endIndex, offsetBy: -4)
+                                    let range = start..<end
+                                    var mySubstring = element[range]
+                                    if (mySubstring.contains("&amp;")) {
+                                        mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                                    }
+                                    self.tableentries.append(mySubstring)
+                                }
+                                if (element.contains("name")) {
+                                    let start = element.index(element.startIndex, offsetBy: 6)
+                                    let end = element.index(element.endIndex, offsetBy: -7)
+                                    let range = start..<end
+                                    var mySubstring = element[range]
+                                    if (mySubstring.contains("&amp;")) {
+                                        mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                                    }
+                                    self.tableentries.append(mySubstring)
+                                }
+                            }
                         }
-                        self.tableentries.append(mySubstring)
                     }
-                    if (element.contains("name")) {
-                        let start = element.index(element.startIndex, offsetBy: 6)
-                        let end = element.index(element.endIndex, offsetBy: -7)
-                        let range = start..<end
-                        var mySubstring = element[range]
-                        if (mySubstring.contains("&amp;")) {
-                            mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                }
+                else {
+                    self.weekday = true;
+                    self.selector.setTitle("Breakfast", forSegmentAt: 0)
+                    self.selector.setTitle("Lunch", forSegmentAt: 1)
+                    self.selector.insertSegment(withTitle: "Dinner", at: 2, animated: true)
+                    Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1421&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                        if let html2 = response.result.value {
+                            let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                            let matched = try! self.matches(for: regex, in: html2)
+                            for element in matched {
+                                if (element.contains(";\">")) {
+                                    let start = element.index(element.startIndex, offsetBy: 3)
+                                    let end = element.index(element.endIndex, offsetBy: -4)
+                                    let range = start..<end
+                                    var mySubstring = element[range]
+                                    if (mySubstring.contains("&amp;")) {
+                                        mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                                    }
+                                    self.tableentries.append(mySubstring)
+                                }
+                                if (element.contains("name")) {
+                                    let start = element.index(element.startIndex, offsetBy: 6)
+                                    let end = element.index(element.endIndex, offsetBy: -7)
+                                    let range = start..<end
+                                    var mySubstring = element[range]
+                                    if (mySubstring.contains("&amp;")) {
+                                        mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                                    }
+                                    self.tableentries.append(mySubstring)
+                                }
+                            }
                         }
-                        self.tableentries.append(mySubstring)
+                    }
+                    
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
+        }
+        self.selector.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for:.valueChanged)
+        self.selector.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for:.touchUpInside)
+    }
+    
+    func segmentedControlValueChanged(segment: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 0 && weekend {
+            print("brunch")
+            tableentries = [String]();
+            Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1422&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                if let html2 = response.result.value {
+                    let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                    let matched = try! self.matches(for: regex, in: html2)
+                    for element in matched {
+                        if (element.contains(";\">")) {
+                            let start = element.index(element.startIndex, offsetBy: 3)
+                            let end = element.index(element.endIndex, offsetBy: -4)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                        if (element.contains("name")) {
+                            let start = element.index(element.startIndex, offsetBy: 6)
+                            let end = element.index(element.endIndex, offsetBy: -7)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
                     }
                 }
             }
-            print(self.tableentries)
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
         }
-
-        // Do any additional setup after loading the view.
+        if segment.selectedSegmentIndex == 1 && weekend {
+            print("dinner")
+            tableentries = [String]();
+            Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1424&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                if let html2 = response.result.value {
+                    let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                    let matched = try! self.matches(for: regex, in: html2)
+                    for element in matched {
+                        if (element.contains(";\">")) {
+                            let start = element.index(element.startIndex, offsetBy: 3)
+                            let end = element.index(element.endIndex, offsetBy: -4)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                        if (element.contains("name")) {
+                            let start = element.index(element.startIndex, offsetBy: 6)
+                            let end = element.index(element.endIndex, offsetBy: -7)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
+        }
+        
+        if segment.selectedSegmentIndex == 0 && weekday {
+            print("breakfast")
+            tableentries = [String]();
+            Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1421&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                if let html2 = response.result.value {
+                    let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                    let matched = try! self.matches(for: regex, in: html2)
+                    for element in matched {
+                        if (element.contains(";\">")) {
+                            let start = element.index(element.startIndex, offsetBy: 3)
+                            let end = element.index(element.endIndex, offsetBy: -4)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                        if (element.contains("name")) {
+                            let start = element.index(element.startIndex, offsetBy: 6)
+                            let end = element.index(element.endIndex, offsetBy: -7)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
+        }
+        
+        if segment.selectedSegmentIndex == 1 && weekday {
+            print("lunch")
+            tableentries = [String]();
+            Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1423&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                if let html2 = response.result.value {
+                    let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                    let matched = try! self.matches(for: regex, in: html2)
+                    for element in matched {
+                        if (element.contains(";\">")) {
+                            let start = element.index(element.startIndex, offsetBy: 3)
+                            let end = element.index(element.endIndex, offsetBy: -4)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                        if (element.contains("name")) {
+                            let start = element.index(element.startIndex, offsetBy: 6)
+                            let end = element.index(element.endIndex, offsetBy: -7)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
+            
+        }
+        if segment.selectedSegmentIndex == 2 && weekday {
+            print("dinner")
+            tableentries = [String]();
+            Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=695&PeriodId=1424&MenuDate=&Mode=day&UIBuildDateFrom=").responseString { response in
+                if let html2 = response.result.value {
+                    let regex = "(name\">[A-Z].*)|(;\">.*</a>)"
+                    let matched = try! self.matches(for: regex, in: html2)
+                    for element in matched {
+                        if (element.contains(";\">")) {
+                            let start = element.index(element.startIndex, offsetBy: 3)
+                            let end = element.index(element.endIndex, offsetBy: -4)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                        if (element.contains("name")) {
+                            let start = element.index(element.startIndex, offsetBy: 6)
+                            let end = element.index(element.endIndex, offsetBy: -7)
+                            let range = start..<end
+                            var mySubstring = element[range]
+                            if (mySubstring.contains("&amp;")) {
+                                mySubstring = mySubstring.replace(target: "&amp;", withString:"&")
+                            }
+                            self.tableentries.append(mySubstring)
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+                print(self.tableentries)
+                self.ohillTable.reloadData()
+                print(self.ohillTable.numberOfRows(inSection: 0))
+            })
+        }
     }
+    
+    func check(time: NSDate) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(identifier: "EST")
+        if weekday {
+            guard let
+                beginOpen = formatter.date(from: "07:00"),
+                let beginClosed = formatter.date(from: "21:00")
+                else { return nil }
+            if time.compare(beginOpen) == .orderedAscending { return "Closed" }
+            if time.compare(beginClosed) == .orderedAscending { return "Open" }
+        }
+        
+        if weekend {
+            guard let
+                beginOpen = formatter.date(from: "08:00"),
+                let beginClosed = formatter.date(from: "21:00")
+                else { return nil }
+            if time.compare(beginOpen) == .orderedAscending { return "Closed" }
+            if time.compare(beginClosed) == .orderedAscending { return "Open"}
+        }
+        return "Closed"
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

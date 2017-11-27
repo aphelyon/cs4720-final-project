@@ -66,17 +66,21 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
         let dateComponents = NSDateComponents()
         dateComponents.day = day
         dateComponents.month = month
         dateComponents.year = year
-        
+        dateComponents.hour = hour
+        dateComponents.minute = minute
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         formatter.timeZone = TimeZone(identifier: "EST")
         if let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian),
             let date = gregorianCalendar.date(from: dateComponents as DateComponents) {
             let weekday = gregorianCalendar.component(.weekday, from: date)
+
             switch weekday {
             case 1:
                 currentWeekday.text = "Sunday"

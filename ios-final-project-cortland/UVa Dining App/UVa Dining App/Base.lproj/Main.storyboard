@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="runkTableCell" id="foe-PQ-ajw" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newcombTableCell" id="foe-PQ-ajw" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="foe-PQ-ajw" id="Fls-Ym-hYn" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
@@ -56,8 +56,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="PNJ-eK-A7b" id="VUL-7d-gIv"/>
-                                    <outlet property="delegate" destination="PNJ-eK-A7b" id="Dqw-n5-4jG"/>
+                                    <outlet property="dataSource" destination="Lw0-Oc-i4Q" id="hda-Lt-mTT"/>
+                                    <outlet property="delegate" destination="Lw0-Oc-i4Q" id="Noy-e9-4Tb"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today's Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YA-zX-fkZ">
@@ -127,6 +127,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentWeekday" destination="mS2-Pi-3YN" id="xr6-lW-ofw"/>
+                        <outlet property="newcStatus" destination="NQ0-q5-fRU" id="d4h-oL-91I"/>
+                        <outlet property="newcTable" destination="3ND-rR-kZU" id="VtC-pG-9aK"/>
+                        <outlet property="newcView" destination="0At-ra-E5f" id="Der-o3-z01"/>
+                        <outlet property="operatingHours" destination="VSB-qa-00J" id="JVA-R8-4dg"/>
+                        <outlet property="selector" destination="t8J-ev-1P8" id="csK-dZ-ieI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXj-fH-yHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,8 +639,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="PNJ-eK-A7b" id="GUJ-kP-i1A"/>
-                                    <outlet property="delegate" destination="PNJ-eK-A7b" id="7fe-gp-SNQ"/>
+                                    <outlet property="dataSource" destination="5ld-Mj-umo" id="jVv-I6-Qkg"/>
+                                    <outlet property="delegate" destination="5ld-Mj-umo" id="iZD-IR-7pK"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -645,6 +653,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentWeekday" destination="bZb-Ea-Wie" id="xNA-mi-1pC"/>
+                        <outlet property="ohillStatus" destination="5Om-Ab-rzJ" id="LUQ-Ii-lmS"/>
+                        <outlet property="ohillTable" destination="CJU-1U-qh3" id="DlP-pG-X72"/>
+                        <outlet property="ohillView" destination="7oh-Yy-zTe" id="Fnv-c7-jJl"/>
+                        <outlet property="operatingHours" destination="eMJ-Em-Q4i" id="cyd-5e-Od9"/>
+                        <outlet property="selector" destination="Yb7-ms-EW4" id="hg4-0z-a4m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32C-o1-cSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
