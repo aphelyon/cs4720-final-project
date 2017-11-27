@@ -15,8 +15,9 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
     var weekend = false;
     var weekday = false;
 
+    @IBOutlet weak var runkView: UIView!
+    @IBOutlet weak var runkStatus: UILabel!
     @IBOutlet weak var currentWeekday: UILabel!
-    @IBOutlet weak var runkStatus: UIView!
     @IBOutlet weak var operatingHours: UILabel!
     @IBOutlet weak var selector: UISegmentedControl!
     @IBAction func dismissRunk(_ sender: Any) {
@@ -54,10 +55,11 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        runkStatus.layer.borderWidth = 2.0
-        runkStatus.layer.borderColor = UIColor.black.cgColor
+        runkView.layer.borderWidth = 2.0
+        runkView.layer.borderColor = UIColor.black.cgColor
         let date = Date()
         let calendar = Calendar.current
         
@@ -68,6 +70,10 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
         dateComponents.day = day
         dateComponents.month = month
         dateComponents.year = year
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(identifier: "EST")
         if let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian),
             let date = gregorianCalendar.date(from: dateComponents as DateComponents) {
             let weekday = gregorianCalendar.component(.weekday, from: date)
@@ -95,14 +101,26 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch operation {
             case 1:
                 operatingHours.text = "10:00 am - 8:00 pm"
+                self.weekend = true;
             case (2..<7):
                 operatingHours.text = "7:00 am - 8:00 pm"
+                self.weekday = true;
             case 7:
                 operatingHours.text = "10:00 am - 8:00 pm"
+                self.weekend = true;
             default:
                 print("Invalid")
             }
+            
+            runkStatus.text = check(time: formatter.date(from: formatter.string(from: date))! as NSDate)
+            if (check(time: formatter.date(from: formatter.string(from: date))! as NSDate) == "Closed") {
+                runkStatus.textColor = .red
+            }
+            else {
+                runkStatus.textColor = .green
+            }
         }
+        
         
         Alamofire.request("https://virginia.campusdish.com/Commerce/Catalog/Menus.aspx?LocationId=701").responseString { response in
             if let html = response.result.value {
@@ -374,6 +392,30 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(self.runkTable.numberOfRows(inSection: 0))
             })
         }
+    }
+    
+    func check(time: NSDate) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        formatter.timeZone = TimeZone(identifier: "EST")
+        if weekday {
+            guard let
+                beginOpen = formatter.date(from: "7:00"),
+                let beginClosed = formatter.date(from: "20:00")
+                else { return nil }
+            if time.compare(beginOpen) == .orderedAscending { return "Closed" }
+            if time.compare(beginClosed) == .orderedAscending { return "Open" }
+        }
+        
+        if weekend {
+            guard let
+                beginOpen = formatter.date(from: "10:00"),
+                let beginClosed = formatter.date(from: "20:00")
+                else { return nil }
+            if time.compare(beginOpen) == .orderedAscending { return "Closed" }
+            if time.compare(beginClosed) == .orderedAscending { return "Open"}
+        }
+        return "Closed"
     }
     
     override func didReceiveMemoryWarning() {

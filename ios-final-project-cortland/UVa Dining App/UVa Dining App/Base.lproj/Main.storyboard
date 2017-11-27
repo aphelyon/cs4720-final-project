@@ -345,8 +345,9 @@
                     <connections>
                         <outlet property="currentWeekday" destination="BEh-Cw-LAa" id="f1o-Rh-dsE"/>
                         <outlet property="operatingHours" destination="RJ7-B9-H01" id="Xis-JK-9Zm"/>
-                        <outlet property="runkStatus" destination="5ij-Gc-sua" id="7Go-Ht-LuW"/>
+                        <outlet property="runkStatus" destination="sMs-A2-GXY" id="G4W-SZ-Z9N"/>
                         <outlet property="runkTable" destination="XZt-BW-DZQ" id="ApW-VQ-Yhr"/>
+                        <outlet property="runkView" destination="5ij-Gc-sua" id="4Zs-cy-WmK"/>
                         <outlet property="selector" destination="wP5-OQ-GAw" id="x1B-WT-Zv9"/>
                     </connections>
                 </viewController>
@@ -608,7 +609,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="runkTableCell" id="z5s-Md-b6q" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ohillTableCell" id="z5s-Md-b6q" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="67" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z5s-Md-b6q" id="4pD-cC-K1X" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
