@@ -278,10 +278,50 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                })
+                }
             })
         }
         self.selector.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for:.valueChanged)
@@ -320,10 +360,50 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         if segment.selectedSegmentIndex == 1 && self.sunday{
@@ -357,10 +437,50 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         
@@ -395,11 +515,52 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
+
         }
         
         if segment.selectedSegmentIndex == 1 && self.weekday {
@@ -433,12 +594,51 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
         if segment.selectedSegmentIndex == 2 && self.weekday {
             print("dinner")
@@ -471,11 +671,52 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
+
         }
         
         if segment.selectedSegmentIndex == 0 && self.friday {
@@ -509,12 +750,51 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
         if segment.selectedSegmentIndex == 1 && self.friday {
             print("lunch")
@@ -547,12 +827,51 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
         
         if segment.selectedSegmentIndex == 0 && self.saturday {
@@ -586,12 +905,51 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
         if segment.selectedSegmentIndex == 1 && self.saturday {
             print("brunch")
@@ -624,12 +982,51 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.newcTable.reloadData()
-                print(self.newcTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.newcTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.newcTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.newcTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.newcTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.newcTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
     }
     

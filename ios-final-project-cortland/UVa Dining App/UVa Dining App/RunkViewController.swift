@@ -197,10 +197,50 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         self.selector.addTarget(self, action: #selector(segmentedControlValueChanged(segment:)), for:.valueChanged)
@@ -239,10 +279,50 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         if segment.selectedSegmentIndex == 1 && weekend {
@@ -276,10 +356,50 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         
@@ -314,10 +434,50 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
         
@@ -352,12 +512,51 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
-            
         }
         if segment.selectedSegmentIndex == 2 && weekday {
             print("dinner")
@@ -390,10 +589,50 @@ class RunkViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                print(self.tableentries)
-                self.runkTable.reloadData()
-                print(self.runkTable.numberOfRows(inSection: 0))
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                if (self.tableentries.count != 0){
+                    print(self.tableentries)
+                    self.runkTable.reloadData()
+                    print("1")
+                    
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if (self.tableentries.count != 0){
+                            print(self.tableentries)
+                            self.runkTable.reloadData()
+                            print("2")
+                            
+                        }
+                        else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                if (self.tableentries.count != 0){
+                                    print(self.tableentries)
+                                    self.runkTable.reloadData()
+                                    print("3")
+                                    
+                                }
+                                else {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                        if (self.tableentries.count != 0){
+                                            print(self.tableentries)
+                                            self.runkTable.reloadData()
+                                            print("4")
+                                            
+                                        }
+                                        else {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                print(self.tableentries)
+                                                self.runkTable.reloadData()
+                                                print("5")
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
             })
         }
     }
