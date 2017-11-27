@@ -63,9 +63,8 @@ Need to figure out how to use keychain
   
 Need to figure out how to grab CampusDish Data
        
-       --> 60% 
-            --> need to finish time range and the other dining halls
-            --> Significant issues: time delay... 
+       --> Done but should be looked over and tested
+                  Significant issues: time delay... 
                         grabbing data working vs user perceived speed    
 
 Need to make firebase with data of all the restaurants that are plus dollar and meal exchange eligible 
