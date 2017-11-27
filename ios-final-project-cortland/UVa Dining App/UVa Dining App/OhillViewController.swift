@@ -200,11 +200,11 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                 }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 if (self.tableentries.count != 0){
                     print(self.tableentries)
                     self.ohillTable.reloadData()
-                    print("1")
+                    print("2")
                     
                 }
                 else {
@@ -212,7 +212,7 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         if (self.tableentries.count != 0){
                             print(self.tableentries)
                             self.ohillTable.reloadData()
-                            print("2")
+                            print("3")
                             
                         }
                         else {
@@ -220,7 +220,7 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 if (self.tableentries.count != 0){
                                     print(self.tableentries)
                                     self.ohillTable.reloadData()
-                                    print("3")
+                                    print("4")
                                     
                                 }
                                 else {
@@ -228,14 +228,34 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         if (self.tableentries.count != 0){
                                             print(self.tableentries)
                                             self.ohillTable.reloadData()
-                                            print("4")
+                                            print("5")
                                             
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("6")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("7")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("8")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -315,9 +335,29 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -392,9 +432,29 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -470,9 +530,29 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -548,9 +628,29 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -625,9 +725,29 @@ class OhillViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.ohillTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.ohillTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.ohillTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.ohillTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })

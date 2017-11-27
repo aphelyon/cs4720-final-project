@@ -279,11 +279,11 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                 if (self.tableentries.count != 0){
                     print(self.tableentries)
                     self.newcTable.reloadData()
-                    print("1")
+                    print("2")
                     
                 }
                 else {
@@ -291,7 +291,7 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if (self.tableentries.count != 0){
                             print(self.tableentries)
                             self.newcTable.reloadData()
-                            print("2")
+                            print("3")
                             
                         }
                         else {
@@ -299,7 +299,7 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                 if (self.tableentries.count != 0){
                                     print(self.tableentries)
                                     self.newcTable.reloadData()
-                                    print("3")
+                                    print("4")
                                     
                                 }
                                 else {
@@ -307,14 +307,34 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         if (self.tableentries.count != 0){
                                             print(self.tableentries)
                                             self.newcTable.reloadData()
-                                            print("4")
+                                            print("5")
                                             
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("6")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("7")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("8")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -394,9 +414,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -471,9 +511,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -549,9 +609,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -628,9 +708,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -705,9 +805,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -784,9 +904,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -861,9 +1001,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -939,9 +1099,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
@@ -1016,9 +1196,29 @@ class NewcombViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         }
                                         else {
                                             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                                                print(self.tableentries)
-                                                self.newcTable.reloadData()
-                                                print("5")
+                                                if (self.tableentries.count != 0){
+                                                    print(self.tableentries)
+                                                    self.newcTable.reloadData()
+                                                    print("5")
+                                                    
+                                                }
+                                                else {
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                        if (self.tableentries.count != 0){
+                                                            print(self.tableentries)
+                                                            self.newcTable.reloadData()
+                                                            print("6")
+                                                            
+                                                        }
+                                                        else {
+                                                            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                                                                print(self.tableentries)
+                                                                self.newcTable.reloadData()
+                                                                print("7")
+                                                            })
+                                                        }
+                                                    })
+                                                }
                                             })
                                         }
                                     })
