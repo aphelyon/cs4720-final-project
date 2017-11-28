@@ -79,4 +79,29 @@ Need to work on picking a random restaurant based on shake and then picking an i
 Need to work on getting top 5 restaurants closest to the current location
      
       -->
-      
+
+
+Meal Exchange and Plus Dollars Restaurants and Menu Items (Core Data)
+Top 5 Closest Restaurants to the current location
+
+Work Done
+
+            --> 10 pts - Consume a pre-built web service 
+                  --> CampusDish and UVA Webservices
+
+            --> 10 pts - Data storage using key/value pair storage (SharedPreferences or UserDefaults) 
+                  --> UserDefaults saving login information by using KeychainSwift and a user defined pin
+
+
+Work Left
+
+15 pts - GPS / Location-awareness (includes using Google or Apple Maps) 
+- Your app uses the location of the user in some meaningful way in the app. A plain Google Map with just your location and no modification will not earn full credit. (15: Excellent, 12: Good, 9: Reasonable, 6: Has issues, 3: Poor, 0: Does not work)
+
+
+10 pts - Device Shake 
+- Your app responds in an appropriate way to a device shake. "Made up" usages that don't make sense will not earn many points. (10: Excellent, 8: Good, 6: Reasonable, 4: Has issues, 2: Poor, 0: Does not work)
+
+
+20 pts - Data storage using Core Data (iOS) or SQLite (Android) 
+- Your app stores data locally in a relational-type database model. (20: Excellent, 16: Good, 12: Reasonable, 8: Has issues, 4: Poor, 0: Does not work)
