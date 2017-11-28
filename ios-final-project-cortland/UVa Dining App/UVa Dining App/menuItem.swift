@@ -11,5 +11,4 @@ class menuItem {
     var name: String?
     var price: Double?
     var mealExchange: Bool?
-    var description: String?
 }

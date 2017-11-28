@@ -15,8 +15,39 @@ class Restaurant {
     var menuItems = [menuItem]();
     var latitude: Double?
     var longitude: Double?
-    var openingHours: String?
-    var closingHours: String?
-    var mealExchangeOpen: String?
-    var mealExchangeClosed: String?
+    var mondayOpeningHours: String?
+    var mondayClosingHours: String?
+    var mondayMealExchangeOpen: String?
+    var mondayMealExchangeClosed: String?
+    
+    var tuesdayOpeningHours: String?
+    var tuesdayClosingHours: String?
+    var tuesdayMealExchangeOpen: String?
+    var tuesdayMealExchangeClosed: String?
+    
+    var wednesdayOpeningHours: String?
+    var wednesdayClosingHours: String?
+    var wednesdayMealExchangeOpen: String?
+    var wednesdayMealExchangeClosed: String?
+
+    var thursdayOpeningHours: String?
+    var thursdayClosingHours: String?
+    var thursdayMealExchangeOpen: String?
+    var thursdayMealExchangeClosed: String?
+    
+    var fridayOpeningHours: String?
+    var fridayClosingHours: String?
+    var fridayMealExchangeOpen: String?
+    var fridayMealExchangeClosed: String?
+    
+    var saturdayOpeningHours: String?
+    var saturdayClosingHours: String?
+    var saturdayMealExchangeOpen: String?
+    var saturdayMealExchangeClosed: String?
+
+    var sundayOpeningHours: String?
+    var sundayClosingHours: String?
+    var sundayMealExchangeOpen: String?
+    var sundayMealExchangeClosed: String?
+
 }
