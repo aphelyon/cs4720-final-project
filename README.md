@@ -82,6 +82,7 @@ Need to work on getting top 5 restaurants closest to the current location
 
 
 Meal Exchange and Plus Dollars Restaurants and Menu Items (Core Data)
+
 Top 5 Closest Restaurants to the current location
 
 Work Done
