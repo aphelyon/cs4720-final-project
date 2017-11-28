@@ -66,8 +66,17 @@ Need to figure out how to grab CampusDish Data
        --> Done but should be looked over and tested
                   Significant issues: time delay... 
                         grabbing data working vs user perceived speed    
-                              Fixed issue with a bunch of if statements... goes up to five seconds and doesn't take in dataif longer than that
+                              Fixed issue with a bunch of if statements... goes up to eight seconds and doesn't take in data if longer than that
 
 Need to make firebase with data of all the restaurants that are plus dollar and meal exchange eligible 
             
        --> Might be better to use Core Data instead???
+       
+Need to work on picking a random restaurant based on shake and then picking an item for subsequent shakes if the restaurant is confirmed
+      
+       -->
+     
+Need to work on getting top 5 restaurants closest to the current location
+     
+      -->
+      
