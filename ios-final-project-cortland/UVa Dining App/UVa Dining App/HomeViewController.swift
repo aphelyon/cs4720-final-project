@@ -21,7 +21,20 @@ extension String
 class HomeViewController: UIViewController {
 
     
+    @IBAction func lucky(_ sender: Any) {
+        print("I'm Feeling Lucky")
+    }
+    @IBAction func closest(_ sender: Any) {
+        print("Restaurants near me")
+    }
     @IBOutlet weak var plusView: UIView!
+    @IBAction func luckyLandscape(_ sender: Any) {
+        print("I'm Feeling Lucky LandScape")
+    }
+    @IBAction func closestLandscape(_ sender: Any) {
+        print("Restaurants near me LandScape")
+    }
+    
     @IBOutlet weak var mealExchange: UIView!
     @IBOutlet weak var newcomb: UIImageView!
     @IBOutlet weak var balanceView: UIView!

@@ -226,7 +226,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIC-Cg-Pcw">
-                                <rect key="frame" x="328" y="222" width="80" height="80"/>
+                                <rect key="frame" x="337" y="222" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2017-11-27 at 5.30.59 PM" translatesAutoresizingMaskIntoConstraints="NO" id="DUs-kh-Tmo">
@@ -237,7 +237,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HR4-In-BMs">
-                                <rect key="frame" x="431" y="222" width="80" height="80"/>
+                                <rect key="frame" x="468" y="222" width="80" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Graphicloads-Colorful-Long-Shadow-Dollar" translatesAutoresizingMaskIntoConstraints="NO" id="7ae-wY-cJk">
@@ -247,6 +247,51 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-FI-c1Q">
+                                <rect key="frame" x="337" y="72" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83263843911917101" green="0.83263843911917101" blue="0.83263843911917101" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="I'm Feeling Lucky">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="luckyLandscape:" destination="f3t-kf-52j" eventType="touchDown" id="r3W-Kh-Pmw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZA9-Wd-XnX">
+                                <rect key="frame" x="16" y="450" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83263843910000002" green="0.83263843910000002" blue="0.83263843910000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="I'm Feeling Lucky">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="lucky:" destination="f3t-kf-52j" eventType="touchDown" id="9gf-9B-pDU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeu-sc-NtK">
+                                <rect key="frame" x="16" y="509" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83263843910000002" green="0.83263843910000002" blue="0.83263843910000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Restaurants Near Me">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closest:" destination="f3t-kf-52j" eventType="touchDown" id="hv6-yc-2Zq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjo-1h-XAk">
+                                <rect key="frame" x="337" y="146" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83263843910000002" green="0.83263843910000002" blue="0.83263843910000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Restaurants Near Me">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closestLandscape:" destination="f3t-kf-52j" eventType="touchDown" id="bfH-4M-cxZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -276,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213.75" y="101.40845070422536"/>
+            <point key="canvasLocation" x="-215.625" y="100.35211267605634"/>
         </scene>
         <!--Runk-->
         <scene sceneID="VsB-eQ-GSZ">

@@ -15,6 +15,9 @@ class LoginViewController: UIViewController {
     
     var success = false;
     var keychain = KeychainSwift()
+    var usernameFlag = false;
+    var pinFlag = false;
+    var passwordFlag = false;
     
     @IBOutlet weak var pin: UITextField!
     
@@ -25,12 +28,21 @@ class LoginViewController: UIViewController {
     func keyboardWillShow(notification: NSNotification) {
         if (UIDevice.current.orientation.isPortrait) {
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= 10
+                self.view.frame.origin.y += 40
             }
         }
         else {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= 100
+            if (self.view.frame.origin.y == 0 && username.isEditing){
+                self.view.frame.origin.y -= 30
+                self.usernameFlag = true;
+            }
+            else if (self.view.frame.origin.y == 0 && pin.isEditing){
+                self.view.frame.origin.y -= 130
+                self.pinFlag = true;
+            }
+            else if (self.view.frame.origin.y == 0 && password.isEditing){
+                self.view.frame.origin.y -= 110
+                self.passwordFlag = true;
             }
         }
     }
@@ -38,12 +50,21 @@ class LoginViewController: UIViewController {
     func keyboardWillHide(notification: NSNotification) {
         if (UIDevice.current.orientation.isPortrait) {
             if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += 10
+                self.view.frame.origin.y -= 40
             }
         }
         else {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += 100
+            if (self.usernameFlag){
+                self.view.frame.origin.y += 30
+                self.usernameFlag = false;
+            }
+            else if (self.pinFlag){
+                self.view.frame.origin.y += 130
+                self.pinFlag = false;
+            }
+            else if (self.passwordFlag){
+                self.view.frame.origin.y += 110
+                self.passwordFlag = false;
             }
         }
     }
