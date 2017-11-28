@@ -22,6 +22,32 @@ class LoginViewController: UIViewController {
         
     }
     
+    func keyboardWillShow(notification: NSNotification) {
+        if (UIDevice.current.orientation.isPortrait) {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 10
+            }
+        }
+        else {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= 100
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if (UIDevice.current.orientation.isPortrait) {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 10
+            }
+        }
+        else {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += 100
+            }
+        }
+    }
+    
     func displayAlertWithTitle(title: String, message: String){
         let controller = UIAlertController(title: title,
                                            message: message,
@@ -189,6 +215,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.

@@ -21,6 +21,8 @@ extension String
 class HomeViewController: UIViewController {
 
     
+    @IBOutlet weak var plusView: UIView!
+    @IBOutlet weak var mealExchange: UIView!
     @IBOutlet weak var newcomb: UIImageView!
     @IBOutlet weak var balanceView: UIView!
     @IBOutlet weak var ohill: UIImageView!
@@ -131,6 +133,14 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func mealTapped(gesture: UIGestureRecognizer) {
+        print("mealexchange tapped")
+    }
+    
+    func plusTapped(gesture: UIGestureRecognizer) {
+        print("plus tapped")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (UserDefaults.standard.object(forKey: "plusDollar") != nil) {
@@ -155,7 +165,14 @@ class HomeViewController: UIViewController {
         
         balanceView.layer.borderWidth = 0.5
         balanceView.layer.borderColor = UIColor.black.cgColor
+        mealExchange.layer.cornerRadius = 10
         
+        mealExchange.layer.borderWidth = 0.5
+        mealExchange.layer.borderColor = UIColor.black.cgColor
+        plusView.layer.cornerRadius = 10
+        
+        plusView.layer.borderWidth = 0.5
+        plusView.layer.borderColor = UIColor.black.cgColor
         balanceView.layer.shadowColor = UIColor.black.cgColor
         balanceView.layer.shadowOffset = CGSize(width: 3, height: 3)
         balanceView.layer.shadowOpacity = 0.5
@@ -175,6 +192,12 @@ class HomeViewController: UIViewController {
         let runkGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.runkTapped(gesture:)))
         runk.addGestureRecognizer(runkGesture)
         runk.isUserInteractionEnabled = true
+        let mealGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.mealTapped(gesture:)))
+        mealExchange.addGestureRecognizer(mealGesture)
+        mealExchange.isUserInteractionEnabled = true
+        let plusGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.plusTapped(gesture:)))
+        plusView.addGestureRecognizer(plusGesture)
+        plusView.isUserInteractionEnabled = true
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {
