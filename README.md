@@ -104,5 +104,5 @@ Work Left
 - Your app responds in an appropriate way to a device shake. "Made up" usages that don't make sense will not earn many points. (10: Excellent, 8: Good, 6: Reasonable, 4: Has issues, 2: Poor, 0: Does not work)
 
 
-20 pts - Data storage using Core Data (iOS) or SQLite (Android) 
-- Your app stores data locally in a relational-type database model. (20: Excellent, 16: Good, 12: Reasonable, 8: Has issues, 4: Poor, 0: Does not work)
+15 pts - Build and consume your own web service using a third-party platform (i.e Firebase) 
+- Your app uses a web service that requires some level of serious customization. A good example is Firebase, a mobile-ready cloud-based database you can use for free. (15: Excellent, 12: Good, 9: Reasonable, 6: Has issues, 3: Poor, 0: Does not work)
