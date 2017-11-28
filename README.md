@@ -81,7 +81,9 @@ Need to work on getting top 5 restaurants closest to the current location
       -->
 
 
-Meal Exchange and Plus Dollars Restaurants and Menu Items (Core Data)
+Meal Exchange Restaurants and Menu Items (Firebase)
+
+      --> Making viewcontroller and database for plus dollars way more annoying then I initially thought because I thought all the menu (pricing) data would've been available online but I guess not, so it doesn't seem like I'll do it.
 
 Top 5 Closest Restaurants to the current location
 
