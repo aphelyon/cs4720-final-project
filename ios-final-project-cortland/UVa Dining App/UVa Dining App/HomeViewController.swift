@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
     @IBAction func closest(_ sender: Any) {
         print("Restaurants near me")
     }
-    @IBOutlet weak var plusView: UIView!
     @IBAction func luckyLandscape(_ sender: Any) {
         print("I'm Feeling Lucky LandScape")
     }
@@ -150,10 +149,6 @@ class HomeViewController: UIViewController {
         print("mealexchange tapped")
     }
     
-    func plusTapped(gesture: UIGestureRecognizer) {
-        print("plus tapped")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (UserDefaults.standard.object(forKey: "plusDollar") != nil) {
@@ -182,10 +177,6 @@ class HomeViewController: UIViewController {
         
         mealExchange.layer.borderWidth = 0.5
         mealExchange.layer.borderColor = UIColor.black.cgColor
-        plusView.layer.cornerRadius = 10
-        
-        plusView.layer.borderWidth = 0.5
-        plusView.layer.borderColor = UIColor.black.cgColor
         balanceView.layer.shadowColor = UIColor.black.cgColor
         balanceView.layer.shadowOffset = CGSize(width: 3, height: 3)
         balanceView.layer.shadowOpacity = 0.5
@@ -208,9 +199,6 @@ class HomeViewController: UIViewController {
         let mealGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.mealTapped(gesture:)))
         mealExchange.addGestureRecognizer(mealGesture)
         mealExchange.isUserInteractionEnabled = true
-        let plusGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.plusTapped(gesture:)))
-        plusView.addGestureRecognizer(plusGesture)
-        plusView.isUserInteractionEnabled = true
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {

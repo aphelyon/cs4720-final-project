@@ -11,8 +11,7 @@ import Foundation
 class Restaurant {
     var name: String?
     var description: String?
-    var mealExchange: Bool?
-    var menuItems = [menuItem]();
+    var menuItems = [String]();
     var latitude: Double?
     var longitude: Double?
     var mondayOpeningHours: String?
