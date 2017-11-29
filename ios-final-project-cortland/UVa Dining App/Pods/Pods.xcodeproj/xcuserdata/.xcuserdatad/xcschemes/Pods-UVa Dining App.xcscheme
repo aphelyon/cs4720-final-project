@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '944399C98A761DBBCD5A94D847611301'
+               BlueprintIdentifier = '358813D3584291B38768DB5B96C0E91D'
                BlueprintName = 'Pods-UVa Dining App'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-UVa Dining App.framework'>

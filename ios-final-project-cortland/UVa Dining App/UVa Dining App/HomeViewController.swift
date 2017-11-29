@@ -10,6 +10,8 @@ import UIKit
 import KeychainSwift
 import Alamofire
 import SwiftSoup
+import Firebase
+import FirebaseDatabase
 
 extension String
 {
@@ -51,8 +53,9 @@ class HomeViewController: UIViewController {
     var pinnumber = "";
     var username = "";
     var password = "";
+    var restaurants = [Restaurant]();
     var keychainHome = KeychainSwift();
-    
+    var ref: DatabaseReference!
         
     func displayAlertWithTitle(title: String, message: String){
         let controller = UIAlertController(title: title,
@@ -199,6 +202,38 @@ class HomeViewController: UIViewController {
         let mealGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.mealTapped(gesture:)))
         mealExchange.addGestureRecognizer(mealGesture)
         mealExchange.isUserInteractionEnabled = true
+        ref = Database.database().reference()
+        ref.child("Restaurants/MealExchange").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            for (restaurantEntry, datr) in value! {
+                var restaurant = Restaurant()
+                for (key, value) in (datr as? NSDictionary)! {
+                    var keyString = key as! String
+                    if (keyString == "menuItems") {
+                        //print("item")
+                        for (items, item) in (value as? NSDictionary)! {
+                        }
+                    }
+                    else {
+                        if (keyString == "name") {
+                            restaurant.name = value as! String
+                        }
+                        if (keyString == "description") {
+                            restaurant.description = value as! String
+                        }
+                        if (keyString == "latitude") {
+                            restaurant.latitude = value as! String
+                        }
+                        if (keyString == "longitude") {
+                            restaurant.description = value as! String
+                        }
+                    }
+                }
+                self.restaurants.append(restaurant)
+            }
+            
+        })
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {

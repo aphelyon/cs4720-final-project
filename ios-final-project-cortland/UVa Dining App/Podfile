@@ -7,4 +7,5 @@ target 'UVa Dining App' do
 	pod 'SwiftSoup'
 	pod 'KeychainSwift', '~> 10.0'
 	pod 'Firebase/Core'
+	pod 'Firebase/Database'
 end

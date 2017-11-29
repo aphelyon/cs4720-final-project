@@ -34,6 +34,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -47,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1E3A7B9D80FDA337A6551F44B5858A6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>358813D3584291B38768DB5B96C0E91D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38ACA430605AFB4229712A18BDDF5086</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B08C49A396BAA0D9DCAD4460CC52F95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
