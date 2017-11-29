@@ -68,9 +68,10 @@ Need to figure out how to grab CampusDish Data
                         grabbing data working vs user perceived speed    
                               Fixed issue with a bunch of if statements... goes up to eight seconds and doesn't take in data if longer than that
 
-Need to make firebase with data of all the restaurants that are plus dollar and meal exchange eligible 
+Need to make firebase with data of all the restaurants that are meal exchange eligible 
             
-       --> Might be better to use Core Data instead???
+       --> Done
+           
        
 Need to work on picking a random restaurant based on shake and then picking an item for subsequent shakes if the restaurant is confirmed
       
@@ -94,6 +95,9 @@ Work Done
 
             --> 10 pts - Data storage using key/value pair storage (SharedPreferences or UserDefaults) 
                   --> UserDefaults saving login information by using KeychainSwift and a user defined pin
+                  
+            --> 15 pts - Build and consume your own web service using a third-party platform (i.e Firebase) 
+                  --> Uses firebase to build an array of Restaurants by collecting data from a database of of restaurants
 
 
 Work Left
@@ -104,7 +108,3 @@ Work Left
 
 10 pts - Device Shake 
 - Your app responds in an appropriate way to a device shake. "Made up" usages that don't make sense will not earn many points. (10: Excellent, 8: Good, 6: Reasonable, 4: Has issues, 2: Poor, 0: Does not work)
-
-
-15 pts - Build and consume your own web service using a third-party platform (i.e Firebase) 
-- Your app uses a web service that requires some level of serious customization. A good example is Firebase, a mobile-ready cloud-based database you can use for free. (15: Excellent, 12: Good, 9: Reasonable, 6: Has issues, 3: Poor, 0: Does not work)
