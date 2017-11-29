@@ -284,6 +284,7 @@
                         <outlet property="balanceView" destination="kU7-QP-zMN" id="IZY-Nx-qug"/>
                         <outlet property="lastUpdated" destination="dSX-Rs-uJH" id="i29-d6-BA0"/>
                         <outlet property="mealExchange" destination="B0E-un-2ca" id="QRP-sF-qFa"/>
+                        <outlet property="mealExchangeLandscape" destination="DUs-kh-Tmo" id="y2t-lK-484"/>
                         <outlet property="mealSwipes" destination="iaX-zr-yGI" id="tNj-iv-hAM"/>
                         <outlet property="newcomb" destination="Z6M-9V-uwt" id="lnd-pd-XNe"/>
                         <outlet property="ohill" destination="W8g-0M-RgZ" id="7n5-OV-PYL"/>
@@ -294,11 +295,12 @@
                         <segue destination="Hee-SY-VId" kind="presentation" identifier="newcomb" id="uOr-Lt-CcS"/>
                         <segue destination="A2J-QA-CYy" kind="presentation" identifier="ohill" id="dtY-E3-Oex"/>
                         <segue destination="y0q-0s-lgp" kind="presentation" identifier="runk" id="8sB-Qz-fpn"/>
+                        <segue destination="UgL-Pl-B1u" kind="presentation" identifier="mealExchange" id="Hof-mP-RJs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-215.625" y="100.35211267605634"/>
+            <point key="canvasLocation" x="-148" y="117"/>
         </scene>
         <!--Runk-->
         <scene sceneID="VsB-eQ-GSZ">
@@ -429,7 +431,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubu-dQ-IOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362.5" y="797.53521126760563"/>
+            <point key="canvasLocation" x="3360" y="797.53521126760563"/>
         </scene>
         <!--NetBadge Login-->
         <scene sceneID="J4V-xJ-izD">
@@ -547,7 +549,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="Lg4-DA-hkS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="1465"/>
+            <point key="canvasLocation" x="3288.75" y="1464.0845070422536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O5b-f0-gvN">
@@ -583,7 +585,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4I-xR-mh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-214" y="1482"/>
+            <point key="canvasLocation" x="1779.375" y="1480.9859154929577"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ABX-NX-UMG">
@@ -770,6 +772,44 @@
             </objects>
             <point key="canvasLocation" x="-440.625" y="-622.18309859154931"/>
         </scene>
+        <!--Meal Exchange-->
+        <scene sceneID="qFd-RZ-7vq">
+            <objects>
+                <tableViewController id="YV4-43-8Pt" customClass="RestaurantTableViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mLV-QS-GWM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealExchangeCell" id="cZA-j2-fGu">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZA-j2-fGu" id="Dc4-Pg-517">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YV4-43-8Pt" id="sjL-At-P0W"/>
+                            <outlet property="delegate" destination="YV4-43-8Pt" id="GP0-jm-WxW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Meal Exchange" id="45M-RT-DPw">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="uUx-MZ-o1f">
+                            <connections>
+                                <action selector="dismissMeal:" destination="YV4-43-8Pt" id="So9-94-YFG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Ozf-eb-GRG" kind="presentation" identifier="restaurant" id="aOc-iz-aa0"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdk-qd-01I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-193" y="1080"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="m3T-6O-0MY">
             <objects>
@@ -786,7 +826,164 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wo9-pj-UPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="797.53521126760563"/>
+            <point key="canvasLocation" x="2362.5" y="797.53521126760563"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8rh-pB-aCf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UgL-Pl-B1u" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nEd-8G-vYW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YV4-43-8Pt" kind="relationship" relationship="rootViewController" id="KTE-Dp-jNG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rev-3C-pQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1418" y="1080"/>
+        </scene>
+        <!--Meal Exchange View Controller-->
+        <scene sceneID="Lj5-UG-mgy">
+            <objects>
+                <viewController id="k8v-Rv-9zn" customClass="MealExchangeViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QRf-jE-mmj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dd0-og-jdr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rch-fn-HGb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ch-Oo-X0C">
+                                <rect key="frame" x="7" y="64" width="306" height="95"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Day:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zq-n9-Mha">
+                                        <rect key="frame" x="8" y="39" width="110" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Operating Hours:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlq-Hd-bft">
+                                        <rect key="frame" x="9" y="8" width="132" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONT-7i-6Fz">
+                                        <rect key="frame" x="139" y="8" width="149" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSm-sU-XZ3">
+                                        <rect key="frame" x="138" y="68" width="204" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meal Exchange:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdE-Qf-wCA">
+                                        <rect key="frame" x="9" y="62" width="121" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1G-mR-kzs">
+                                        <rect key="frame" x="139" y="39" width="131" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="41" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PEx-Hq-VeT">
+                                <rect key="frame" x="0.0" y="201" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealExchangeItem" rowHeight="41" id="Azh-Q6-xOU" customClass="MenuItemTableViewCell" customModule="UVa_Dining_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="41"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Azh-Q6-xOU" id="CVY-OH-ezq">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6y-3R-KfE">
+                                                    <rect key="frame" x="23" y="14" width="274" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="menuItemName" destination="J6y-3R-KfE" id="xDm-K9-QhH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="k8v-Rv-9zn" id="HQa-zz-WGV"/>
+                                    <outlet property="delegate" destination="k8v-Rv-9zn" id="ygN-I5-ZiJ"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Elligible For Meal Exchange" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ts-Be-GvZ">
+                                <rect key="frame" x="0.0" y="167" width="320" height="39"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jig-wz-LSB">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="P2j-BP-xXX">
+                            <connections>
+                                <action selector="dismissMealExchange:" destination="k8v-Rv-9zn" id="Zkk-pg-DlR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="currentDay" destination="G1G-mR-kzs" id="Tfz-yy-pam"/>
+                        <outlet property="mealExchangeHours" destination="DSm-sU-XZ3" id="bo7-hV-l3X"/>
+                        <outlet property="mealView" destination="7ch-Oo-X0C" id="6oh-5P-x5W"/>
+                        <outlet property="operatingHours" destination="ONT-7i-6Fz" id="pvl-gU-VGJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86u-Df-s6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208.125" y="1936.2676056338028"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NlN-26-sp0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ozf-eb-GRG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zua-in-chH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k8v-Rv-9zn" kind="relationship" relationship="rootViewController" id="X6B-22-4ch"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOt-rf-iD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-787.5" y="1937.323943661972"/>
         </scene>
     </scenes>
     <resources>

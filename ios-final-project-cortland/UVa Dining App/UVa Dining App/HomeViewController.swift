@@ -41,6 +41,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var balanceView: UIView!
     @IBOutlet weak var ohill: UIImageView!
     @IBOutlet weak var runk: UIImageView!
+    @IBOutlet weak var mealExchangeLandscape: UIImageView!
     
     @IBOutlet weak var mealSwipes: UILabel!
     @IBOutlet weak var plusDollars: UILabel!
@@ -124,6 +125,11 @@ class HomeViewController: UIViewController {
             targetController.username = self.username
             targetController.password = self.password
         }
+        if (segue.identifier == "mealExchange") {
+            let destinationVC = segue.destination as! UINavigationController
+            let targetController = destinationVC.topViewController as! RestaurantTableViewController
+            targetController.tableentries = self.restaurants
+        }
         
     }
     
@@ -149,7 +155,7 @@ class HomeViewController: UIViewController {
     }
     
     func mealTapped(gesture: UIGestureRecognizer) {
-        print("mealexchange tapped")
+        self.performSegue(withIdentifier: "mealExchange", sender: self)
     }
     
     override func viewDidLoad() {
@@ -202,6 +208,9 @@ class HomeViewController: UIViewController {
         let mealGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.mealTapped(gesture:)))
         mealExchange.addGestureRecognizer(mealGesture)
         mealExchange.isUserInteractionEnabled = true
+        let mealLandGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.mealTapped(gesture:)))
+        mealExchangeLandscape.addGestureRecognizer(mealLandGesture)
+        mealExchangeLandscape.isUserInteractionEnabled = true
         ref = Database.database().reference()
         ref.child("Restaurants/MealExchange").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -211,23 +220,110 @@ class HomeViewController: UIViewController {
                 for (key, value) in (datr as? NSDictionary)! {
                     var keyString = key as! String
                     if (keyString == "menuItems") {
-                        //print("item")
+                        var menuItems = [String]();
                         for (items, item) in (value as? NSDictionary)! {
+                            menuItems.append(item as! String)
                         }
+                        restaurant.menuItems = menuItems
                     }
                     else {
                         if (keyString == "name") {
-                            restaurant.name = value as! String
+                            restaurant.name = value as? String
                         }
                         if (keyString == "description") {
-                            restaurant.description = value as! String
+                            restaurant.description = value as? String
                         }
                         if (keyString == "latitude") {
-                            restaurant.latitude = value as! String
+                            restaurant.latitude = value as? Double
                         }
                         if (keyString == "longitude") {
-                            restaurant.description = value as! String
+                            restaurant.longitude = value as? Double
                         }
+                        if (keyString == "mondayOpeningHours") {
+                            restaurant.mondayOpeningHours = value as? String
+                        }
+                        if (keyString == "tuesdayOpeningHours") {
+                            restaurant.tuesdayOpeningHours = value as? String
+                        }
+                        if (keyString == "wednesdayOpeningHours") {
+                            restaurant.wednesdayOpeningHours = value as? String
+                        }
+                        if (keyString == "thursdayOpeningHours") {
+                            restaurant.thursdayOpeningHours = value as? String
+                        }
+                        if (keyString == "fridayOpeningHours") {
+                            restaurant.fridayOpeningHours = value as? String
+                        }
+                        if (keyString == "saturdayOpeningHours") {
+                            restaurant.saturdayOpeningHours = value as? String
+                        }
+                        if (keyString == "sundayOpeningHours") {
+                            restaurant.sundayOpeningHours = value as? String
+                        }
+                        if (keyString == "mondayClosingHours") {
+                            restaurant.mondayClosingHours = value as? String
+                        }
+                        if (keyString == "tuesdayClosingHours") {
+                            restaurant.tuesdayClosingHours = value as? String
+                        }
+                        if (keyString == "wednesdayClosingHours") {
+                            restaurant.wednesdayClosingHours = value as? String
+                        }
+                        if (keyString == "thursdayClosingHours") {
+                            restaurant.thursdayClosingHours = value as? String
+                        }
+                        if (keyString == "fridayClosingHours") {
+                            restaurant.fridayClosingHours = value as? String
+                        }
+                        if (keyString == "saturdayClosingHours") {
+                            restaurant.saturdayClosingHours = value as? String
+                        }
+                        if (keyString == "sundayClosingHours") {
+                            restaurant.sundayClosingHours = value as? String
+                        }
+                        if (keyString == "mondayMealOpeningHours") {
+                            restaurant.mondayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "tuesdayMealOpeningHours") {
+                            restaurant.tuesdayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "wednesdayMealOpeningHours") {
+                            restaurant.wednesdayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "thursdayMealOpeningHours") {
+                            restaurant.thursdayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "fridayMealOpeningHours") {
+                            restaurant.fridayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "saturdayMealOpeningHours") {
+                            restaurant.saturdayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "sundayMealOpeningHours") {
+                            restaurant.sundayMealOpeningHours = value as? String
+                        }
+                        if (keyString == "mondayMealClosingHours") {
+                            restaurant.mondayMealClosingHours = value as? String
+                        }
+                        if (keyString == "tuesdayMealClosingHours") {
+                            restaurant.tuesdayMealClosingHours = value as? String
+                        }
+                        if (keyString == "wednesdayMealClosingHours") {
+                            restaurant.wednesdayMealClosingHours = value as? String
+                        }
+                        if (keyString == "thursdayMealClosingHours") {
+                            restaurant.thursdayMealClosingHours = value as? String
+                        }
+                        if (keyString == "fridayMealClosingHours") {
+                            restaurant.fridayMealClosingHours = value as? String
+                        }
+                        if (keyString == "saturdayMealClosingHours") {
+                            restaurant.saturdayMealClosingHours = value as? String
+                        }
+                        if (keyString == "sundayMealClosingHours") {
+                            restaurant.sundayMealClosingHours = value as? String
+                        }
+                        
                     }
                 }
                 self.restaurants.append(restaurant)
