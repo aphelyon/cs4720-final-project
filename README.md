@@ -83,7 +83,7 @@ Need to work on picking a random restaurant based on shake and then picking an i
       
        --> Done
      
-Need to work on getting top 5 restaurants closest to the current location
+Need to work on getting restaurants ordered by the proximity to the current location
      
       -->
 
