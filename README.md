@@ -45,6 +45,10 @@ Optional Features to look out for
              
             --> 10 pts - Device Shake - Your app responds in an appropriate way to a device shake.
                   --> I'm feeling lucky button. Displays a random meal exchange elligible restaurant on shake, and if confirmed, displays a random menu item from the confirmed restaurant on subsequent shakes.
+                
+            --> 15 pts - GPS / Location-awareness (includes using Google or Apple Maps) 
+                  --> Closest Restaurants to your current location. To update after moving, the user must reload the viewcontroller by going back to the homeview. 
+
     
 
 Dependencies
@@ -85,18 +89,8 @@ Need to work on picking a random restaurant based on shake and then picking an i
      
 Need to work on getting restaurants ordered by the proximity to the current location
      
-      -->
+      --> Done!
 
 
-Meal Exchange Restaurants and Menu Items (Firebase)
-
-      --> Making viewcontroller and database for plus dollars way more annoying then I initially thought because I thought all the menu (pricing) data would've been available online but I guess not, so it doesn't seem like I'll do it.
-
-Top 5 Closest Restaurants to the current location
-
-Work Left
-
-15 pts - GPS / Location-awareness (includes using Google or Apple Maps) 
-- Your app uses the location of the user in some meaningful way in the app. A plain Google Map with just your location and no modification will not earn full credit. (15: Excellent, 12: Good, 9: Reasonable, 6: Has issues, 3: Poor, 0: Does not work)
 
 
