@@ -33,20 +33,26 @@ How the App works (so far)
 
 
 Optional Features to look out for
+      
+            --> 10 pts - Consume a pre-built web service 
+                  --> CampusDish and UVA Webservices: Logs into netbadge, grabs the user's plus dollar balance, meal swipe balance, and current date. Also grabs the menu items off the UVA dining hall menus
 
-
-    >Consume a pre-built web service 
-       Logs into netbadge, grabs the user's plus dollar balance, meal swipe balance, and current date
+            --> 10 pts - Data storage using key/value pair storage (SharedPreferences or UserDefaults) 
+                  --> UserDefaults saving login information by using KeychainSwift and a user defined pin. Also grabs the user's previous balances when loading the app. 
+                  
+            --> 15 pts - Build and consume your own web service using a third-party platform (i.e Firebase) 
+                  --> Uses firebase to build an array of Restaurants by collecting data from a database of of restaurants
+             
+            --> 10 pts - Device Shake - Your app responds in an appropriate way to a device shake.
+                  --> I'm feeling lucky button. Displays a random meal exchange elligible restaurant on shake, and if confirmed, displays a random menu item from the confirmed restaurant on subsequent shakes.
     
-    >Data storage using key/value pair storage --> User Defaults
-      Grabs keychain for login, also grabs the user's previous balances when loading the app. 
 
 Dependencies
      
      Alamofire
      SwiftSoup
      KeychainSwift
-
+     Firebase
 
 
 Finish NetBadge Authentication
@@ -75,7 +81,7 @@ Need to make firebase with data of all the restaurants that are meal exchange el
        
 Need to work on picking a random restaurant based on shake and then picking an item for subsequent shakes if the restaurant is confirmed
       
-       -->
+       --> Done
      
 Need to work on getting top 5 restaurants closest to the current location
      
@@ -88,23 +94,9 @@ Meal Exchange Restaurants and Menu Items (Firebase)
 
 Top 5 Closest Restaurants to the current location
 
-Work Done
-
-            --> 10 pts - Consume a pre-built web service 
-                  --> CampusDish and UVA Webservices
-
-            --> 10 pts - Data storage using key/value pair storage (SharedPreferences or UserDefaults) 
-                  --> UserDefaults saving login information by using KeychainSwift and a user defined pin
-                  
-            --> 15 pts - Build and consume your own web service using a third-party platform (i.e Firebase) 
-                  --> Uses firebase to build an array of Restaurants by collecting data from a database of of restaurants
-
-
 Work Left
 
 15 pts - GPS / Location-awareness (includes using Google or Apple Maps) 
 - Your app uses the location of the user in some meaningful way in the app. A plain Google Map with just your location and no modification will not earn full credit. (15: Excellent, 12: Good, 9: Reasonable, 6: Has issues, 3: Poor, 0: Does not work)
 
 
-10 pts - Device Shake 
-- Your app responds in an appropriate way to a device shake. "Made up" usages that don't make sense will not earn many points. (10: Excellent, 8: Good, 6: Reasonable, 4: Has issues, 2: Poor, 0: Does not work)
