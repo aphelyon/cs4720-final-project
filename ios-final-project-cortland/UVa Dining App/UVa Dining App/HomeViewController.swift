@@ -24,13 +24,13 @@ class HomeViewController: UIViewController {
 
     
     @IBAction func lucky(_ sender: Any) {
-        print("I'm Feeling Lucky")
+        self.performSegue(withIdentifier: "lucky", sender: self)
     }
     @IBAction func closest(_ sender: Any) {
         print("Restaurants near me")
     }
     @IBAction func luckyLandscape(_ sender: Any) {
-        print("I'm Feeling Lucky LandScape")
+        self.performSegue(withIdentifier: "lucky", sender: self)
     }
     @IBAction func closestLandscape(_ sender: Any) {
         print("Restaurants near me LandScape")
@@ -129,6 +129,11 @@ class HomeViewController: UIViewController {
             let destinationVC = segue.destination as! UINavigationController
             let targetController = destinationVC.topViewController as! RestaurantTableViewController
             targetController.tableentries = self.restaurants
+        }
+        if (segue.identifier == "lucky") {
+            let destinationVC = segue.destination as! UINavigationController
+            let targetController = destinationVC.topViewController as! LuckyViewController
+            targetController.restaurants = self.restaurants
         }
         
     }

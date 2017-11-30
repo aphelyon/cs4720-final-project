@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OXj-fH-yHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589.375" y="-622.18309859154931"/>
+            <point key="canvasLocation" x="3586.875" y="-622.18309859154931"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="AeW-Fw-508">
@@ -296,6 +296,7 @@
                         <segue destination="A2J-QA-CYy" kind="presentation" identifier="ohill" id="dtY-E3-Oex"/>
                         <segue destination="y0q-0s-lgp" kind="presentation" identifier="runk" id="8sB-Qz-fpn"/>
                         <segue destination="UgL-Pl-B1u" kind="presentation" identifier="mealExchange" id="Hof-mP-RJs"/>
+                        <segue destination="efh-DZ-qKA" kind="presentation" identifier="lucky" id="NRe-yh-NOn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,7 +735,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32C-o1-cSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556.875" y="-622.18309859154931"/>
+            <point key="canvasLocation" x="1554.375" y="-622.18309859154931"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GJt-lT-cdf">
@@ -752,7 +753,115 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZx-hS-IfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="-622"/>
+            <point key="canvasLocation" x="2486.25" y="-622.18309859154931"/>
+        </scene>
+        <!--I'm Feeling Lucky-->
+        <scene sceneID="dU2-Eu-gXp">
+            <objects>
+                <viewController id="Kri-89-d84" customClass="LuckyViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UfR-H5-Tw6"/>
+                        <viewControllerLayoutGuide type="bottom" id="8XE-vW-T1b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LeU-Ad-SZX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake the phone to get a random restaurant" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeK-QZ-FXe">
+                                <rect key="frame" x="16" y="72" width="304" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFC-uV-X9f">
+                                <rect key="frame" x="16" y="133" width="288" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63v-Rx-R3q">
+                                <rect key="frame" x="16" y="203" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.88580796632124348" green="0.88580796632124348" blue="0.88580796632124348" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="10" height="5"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleShadowColor" red="0.83263843910000002" green="0.83263843910000002" blue="0.83263843910000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirm:" destination="Kri-89-d84" eventType="touchDown" id="Vhr-Dd-vo2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIH-5M-NlN">
+                                <rect key="frame" x="214" y="203" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.88580796630000003" green="0.88580796630000003" blue="0.88580796630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="10" height="5"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" red="0.83263843910000002" green="0.83263843910000002" blue="0.83263843910000002" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="Kri-89-d84" eventType="touchDown" id="3Fq-P0-FvB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake the phone to get a random menu item from the restaurant you confirmed above" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oC3-K9-ICs">
+                                <rect key="frame" x="16" y="313" width="294" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zq5-wT-dFT">
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.88617795705795288" green="0.88633018732070923" blue="0.88616830110549927" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Go to Restaurant Page"/>
+                                <connections>
+                                    <action selector="restaurantPage:" destination="Kri-89-d84" eventType="touchDown" id="nvQ-fe-6YR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shake the phone to get a random menu item from the restaurant you confirmed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOg-zI-EWB">
+                                <rect key="frame" x="338" y="79" width="230" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL8-2z-iS9">
+                                <rect key="frame" x="338" y="162" width="217" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyd-jG-Cxp">
+                                <rect key="frame" x="16" y="392" width="294" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="I'm Feeling Lucky" id="ZnE-VY-62C">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="V4v-cb-lWE">
+                            <connections>
+                                <action selector="dismissLucky:" destination="Kri-89-d84" id="0d7-aB-Yd9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="random" destination="KFC-uV-X9f" id="bE0-1n-cr4"/>
+                        <outlet property="randomMenu" destination="cyd-jG-Cxp" id="w51-oc-rCQ"/>
+                        <outlet property="randomMenuLand" destination="PL8-2z-iS9" id="4XW-jI-7Sq"/>
+                        <segue destination="Ozf-eb-GRG" kind="presentation" identifier="luckyPage" id="Puf-BL-9Gb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6K9-2I-cHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="-600"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fUw-Zw-Us3">
@@ -770,7 +879,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tFH-Fd-nhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-440.625" y="-622.18309859154931"/>
+            <point key="canvasLocation" x="556.875" y="-622.18309859154931"/>
         </scene>
         <!--Meal Exchange-->
         <scene sceneID="qFd-RZ-7vq">
@@ -985,6 +1094,24 @@
             </objects>
             <point key="canvasLocation" x="-787.5" y="1937.323943661972"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uuz-yd-ZCc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="efh-DZ-qKA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zJI-jh-9ab">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kri-89-d84" kind="relationship" relationship="rootViewController" id="iRX-tl-fsA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fn2-A2-iSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1597.5" y="-600"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Screen Shot 2017-11-27 at 5.30.59 PM" width="296" height="248"/>
@@ -992,4 +1119,7 @@
         <image name="imageedit_4_9156436346" width="181" height="181"/>
         <image name="imageedit_8_7335452176" width="181" height="181"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Puf-BL-9Gb"/>
+    </inferredMetricsTieBreakers>
 </document>
