@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Restaurant: Equatable { }
+
+func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {
+    return lhs === rhs // === returns true when both references point to the same object
+}
+
 class Restaurant {
     var name: String?
     var description: String?

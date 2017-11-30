@@ -157,9 +157,9 @@ class ViewController: UIViewController {
         self.webview.loadRequest(self.request)
         let secondUrl = URL (string: "https://csg-web1.eservices.virginia.edu/login/sso.php")
         let requestObj = URLRequest(url: secondUrl!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4) + .milliseconds(500), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
             self.webview.loadRequest(requestObj)
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2) + .milliseconds(300), execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
                 let thirdUrl = URL (string: "https://csg-web1.eservices.virginia.edu/student/welcome.php")
                 let requestObj2 = URLRequest(url: thirdUrl!)
                 self.webview.loadRequest(requestObj2)

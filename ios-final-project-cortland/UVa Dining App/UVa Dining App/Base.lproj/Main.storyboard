@@ -297,6 +297,7 @@
                         <segue destination="y0q-0s-lgp" kind="presentation" identifier="runk" id="8sB-Qz-fpn"/>
                         <segue destination="UgL-Pl-B1u" kind="presentation" identifier="mealExchange" id="Hof-mP-RJs"/>
                         <segue destination="efh-DZ-qKA" kind="presentation" identifier="lucky" id="NRe-yh-NOn"/>
+                        <segue destination="ffr-Dw-Lh0" kind="presentation" identifier="close" id="E14-ug-SJM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jL-gv-mxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -863,6 +864,49 @@
             </objects>
             <point key="canvasLocation" x="-600" y="-600"/>
         </scene>
+        <!--Restaurants Near Me-->
+        <scene sceneID="BXh-7p-8Ll">
+            <objects>
+                <tableViewController id="9fI-cC-KJi" customClass="ClosestTableViewController" customModule="UVa_Dining_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="djz-Pw-32t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nearMeCell" id="N9Z-gA-Pxw">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N9Z-gA-Pxw" id="vJB-1I-KRO">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9fI-cC-KJi" id="0v5-A5-lq8"/>
+                            <outlet property="delegate" destination="9fI-cC-KJi" id="NO3-lU-LpU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Restaurants Near Me" id="62t-qb-ZLk">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="5CN-iB-vV3">
+                            <connections>
+                                <action selector="dismissClose:" destination="9fI-cC-KJi" id="tc6-H9-sWO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="jl1-NA-h8G">
+                            <connections>
+                                <action selector="startGPS:" destination="9fI-cC-KJi" id="1lc-Zt-kf5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Ozf-eb-GRG" kind="presentation" identifier="closestrestaurant" id="KlF-xs-Ga8"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biz-U6-SAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.75" y="-1302.4647887323945"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fUw-Zw-Us3">
             <objects>
@@ -1112,6 +1156,24 @@
             </objects>
             <point key="canvasLocation" x="-1597.5" y="-600"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="56a-ZF-oTw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ffr-Dw-Lh0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jv2-NR-XoN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9fI-cC-KJi" kind="relationship" relationship="rootViewController" id="pyw-3y-eGE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpk-rb-hTC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11.25" y="-1302.4647887323945"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Screen Shot 2017-11-27 at 5.30.59 PM" width="296" height="248"/>
@@ -1120,6 +1182,6 @@
         <image name="imageedit_8_7335452176" width="181" height="181"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Puf-BL-9Gb"/>
+        <segue reference="KlF-xs-Ga8"/>
     </inferredMetricsTieBreakers>
 </document>

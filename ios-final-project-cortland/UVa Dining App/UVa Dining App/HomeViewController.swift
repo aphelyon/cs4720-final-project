@@ -27,13 +27,13 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "lucky", sender: self)
     }
     @IBAction func closest(_ sender: Any) {
-        print("Restaurants near me")
+       self.performSegue(withIdentifier: "close", sender: self)
     }
     @IBAction func luckyLandscape(_ sender: Any) {
         self.performSegue(withIdentifier: "lucky", sender: self)
     }
     @IBAction func closestLandscape(_ sender: Any) {
-        print("Restaurants near me LandScape")
+        self.performSegue(withIdentifier: "close", sender: self)
     }
     
     @IBOutlet weak var mealExchange: UIView!
@@ -134,6 +134,11 @@ class HomeViewController: UIViewController {
             let destinationVC = segue.destination as! UINavigationController
             let targetController = destinationVC.topViewController as! LuckyViewController
             targetController.restaurants = self.restaurants
+        }
+        if (segue.identifier == "close") {
+            let destinationVC = segue.destination as! UINavigationController
+            let targetController = destinationVC.topViewController as! ClosestTableViewController
+            targetController.tableentries = self.restaurants
         }
         
     }
