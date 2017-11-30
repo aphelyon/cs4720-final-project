@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UVa Dining App/ClosestTableViewController.swift"
-            timestampString = "533712580.821617"
+            timestampString = "533752190.333446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "createLocationManager(startImmediately:)"
             landmarkType = "7">
          </BreakpointContent>

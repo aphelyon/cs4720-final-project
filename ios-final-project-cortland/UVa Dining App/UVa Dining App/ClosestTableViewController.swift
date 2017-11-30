@@ -28,14 +28,15 @@ class ClosestTableViewController: UITableViewController, CLLocationManagerDelega
     var updated: Bool?
     
     @IBAction func dismissClose(_ sender: Any) {
-        
-        for restaurant in self.tableentries {
-            let start = restaurant.name?.index((restaurant.name?.startIndex)!, offsetBy: 0)
-            let end = restaurant.name?.index((restaurant.name?.endIndex)!, offsetBy: -12)
-            let range = start!..<end!
-            restaurant.name = restaurant.name?.substring(with: range)
-        }
+        if updated!{
+            for restaurant in self.tableentries {
+                let start = restaurant.name?.index((restaurant.name?.startIndex)!, offsetBy: 0)
+                let end = restaurant.name?.index((restaurant.name?.endIndex)!, offsetBy: -13)
+                let range = start!..<end!
+                restaurant.name = restaurant.name?.substring(with: range)
+            }
         self.tableView.reloadData()
+        }
         dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
@@ -184,7 +185,7 @@ class ClosestTableViewController: UITableViewController, CLLocationManagerDelega
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath[1]
-        self.performSegue(withIdentifier: "closestrestaurant", sender: nil)
+        self.performSegue(withIdentifier: "closestrestaurant", sender: self)
         
     }
     
