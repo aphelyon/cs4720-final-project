@@ -13,6 +13,7 @@ import Alamofire
 import WebKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var webview: UIWebView!
     @IBAction func dismissAuthenticator(_ sender: Any) {
         let storage = HTTPCookieStorage.shared
@@ -35,6 +36,10 @@ class ViewController: UIViewController {
                 self.getFormParamas(gurl: url, html:html, gusername : username, gpassword: password)
             }
         }
+    }
+    
+    enum DataError: Error {
+        case FoundNil(String)
     }
     
     func basicAuthHeader(username: String, password: String) -> String? {
@@ -166,16 +171,45 @@ class ViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds (1) + .milliseconds(500), execute: {
                     let doc = self.webview.stringByEvaluatingJavaScript(from: "document.body.innerHTML")
                     if let page = doc{
-                        let balances: Document = try! SwiftSoup.parse(page);
-                        let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first())!
-                        self.mealSwipe += try! mealSwipes.html()
-                        UserDefaults.standard.set(self.mealSwipe, forKey: "mealSwipe")
-                        let date: Element = try! (balances.getElementsByTag("strong").first())!
-                        self.lastUpdate += try! date.html()
-                        UserDefaults.standard.set(self.lastUpdate, forKey: "date")
-                        let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2))
-                        self.balance += try! dollarBalances.html()
-                        UserDefaults.standard.set(self.balance, forKey: "plusDollar")
+                        do {
+                            guard let balances: Document = try! SwiftSoup.parse(page) else {
+                                print("error")
+                            }
+                            
+                            guard let mealSwipes: Element = try! (balances.getElementsByClass("counterNum").first()) else {
+                                print("error")
+                                self.displayAlertWithTitle(title: "Data Retrieval Failed", message: "Please try updating again")
+                                let storage = HTTPCookieStorage.shared
+                                for cookie in storage.cookies! {
+                                    storage.deleteCookie(cookie)
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1) + .milliseconds(500), execute: {
+                                    self.dismiss(animated: true, completion: nil)
+                                    self.dismiss(animated: true, completion: nil)
+                                })
+                                
+                                return
+                            }
+                            self.mealSwipe += try! mealSwipes.html()
+                            UserDefaults.standard.set(self.mealSwipe, forKey: "mealSwipe")
+                            guard let date: Element = try! (balances.getElementsByTag("strong").first())! else {
+                                print("error")
+                            }
+                            self.lastUpdate += try! date.html()
+                            UserDefaults.standard.set(self.lastUpdate, forKey: "date")
+                            guard let dollarBalances: Element = try! (balances.getElementsByTag("strong").get(2)) else {
+                                print("error")
+                            }
+                            self.balance += try! dollarBalances.html()
+                            UserDefaults.standard.set(self.balance, forKey: "plusDollar")
+                        }
+                        catch Exception.Error(let type, let message)
+                        {
+                            print("")
+                        }
+                        catch {
+                            print("Data retrieval has failed")
+                        }
                         self.performSegue(withIdentifier: "exitBalance", sender: self)
                         
                     }
@@ -194,9 +228,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func displayAlertWithTitle(title: String, message: String) {
+    
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+                                           message: message,
+                                           preferredStyle: .alert)
+        
+        controller.addAction(UIAlertAction(title: "OK",
+                                           style: .default,
+                                           handler: nil))
+        
+        present(controller, animated: true, completion: nil)
         
     }
-
 }
 
